@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deeper Life Bible Church - Buffalo</title>
+    <link rel="icon" type="image/png" href="/Pics/logo.png">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Oswald:wght@200..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+
+    <link rel="stylesheet" href="dist/output.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+        }
+
+    </style>
+</head>
+
+<body class="font-body text-gray-900">
+    <!-- NAV + MENU WRAPPER -->
+    <div x-data="{ open: false }">
+
+        <!-- NAVBAR -->
+        <nav class="flex items-center justify-between px-6 py-4 bg-[#061c36] fixed top-0 left-0 right-0 z-50">
+
+            <!-- LEFT: LOGO + NAME -->
+            <div class="flex items-center space-x-3">
+                <img src="/Pics/logo.png" alt="DLBC Logo" class="h-10 w-10 object-contain">
+                <span class="font-impact text-2xl text-white">DLBC BUFFALO</span>
+            </div>
+
+            <!-- RIGHT: HAMBURGER -->
+            <button 
+                @click="open = !open" 
+                class="relative flex flex-col justify-center items-center w-7 h-7 focus:outline-none">
+
+                <!-- TOP BAR -->
+                <span 
+                    class="absolute w-7 h-0.5 bg-white transition-all duration-300"
+                    :class="open 
+                        ? 'rotate-90 top-1/2 -translate-y-1/2' 
+                        : 'top-1'">
+                </span>
+
+                <!-- MIDDLE BAR (DISAPPEARS) -->
+                <span 
+                    class="absolute w-7 h-0.5 bg-white transition-all duration-300"
+                    :class="open 
+                        ? 'opacity-0' 
+                        : 'top-1/2 -translate-y-1/2'">
+                </span>
+
+                <!-- BOTTOM BAR -->
+                <span 
+                    class="absolute w-7 h-0.5 bg-white transition-all duration-300"
+                    :class="open 
+                        ? 'rotate-0 top-1/2 -translate-y-1/2' 
+                        : 'bottom-1'">
+                </span>
+
+            </button>
+
+        </nav>
+
+
+        <!-- MOBILE MENU OVERLAY -->
+        <div 
+            x-show="open"
+            x-transition:enter="transition ease-out duration-500"
+            x-transition:enter-start="opacity-0 -translate-x-full"
+            x-transition:enter-end="opacity-100 translate-x-0"
+            x-transition:leave="transition ease-in duration-400"
+            x-transition:leave-start="opacity-100 translate-x-0"
+            x-transition:leave-end="opacity-0 -translate-x-full"
+            class="fixed inset-0 bg-[#061c36] z-40 flex flex-col items-start px-6 pt-28 space-y-6">
+
+            <!-- MENU ITEMS -->
+            <a href="#" class="font-jost text-4xl tracking-wide text-white">Home</a>
+            <a href="#" class="font-jost text-4xl tracking-wide text-white">About</a>
+            <a href="#" class="font-jost text-4xl tracking-wide text-white">Ministries</a>
+            <a href="#" class="font-jost text-4xl tracking-wide text-white">Events</a>
+            <a href="#" class="font-jost text-4xl tracking-wide text-white">Contact</a>
+        </div>
+
+    </div>
+
+    <!-- HERO SECTION -->
+    <header class="relative h-screen flex flex-col items-center justify-center text-center px-6">
+
+        <!-- BACKGROUND IMAGE -->
+        <div class="absolute inset-0 bg-[url('/Pics/worship1.jpg')] bg-cover bg-center"></div>
+
+        <!-- DARK OVERLAY -->
+        <div class="absolute inset-0 bg-black/60"></div>
+
+        <!-- CONTENT -->
+        <div class="relative z-20 flex flex-col items-center -mt-20">
+
+            <!-- TOP HERO PILL -->
+            <div class="mb-2 px-4 py-1 bg-white/10 backdrop-blur-md rounded-full 
+                        text-sm md:text-base font-body tracking-wide text-white 
+                        flex items-center justify-center">
+                👋 Welcome to DLBC Buffalo
+            </div>
+
+            <h1 class="font-body text-4xl md:text-7xl tracking-wide text-white max-w-7xl font-semibold">
+                For where two or three are gathered together in my name, there am I in the midst of them.
+            </h1>
+
+            <p class="font-body mt-4 text-lg md:text-xl max-w-xl font-medium text-white">
+                - Matthew 18:20 (KJV)
+            </p>
+
+            <button class="mt-6 px-6 py-3 bg-red-600 text-white rounded-full font-jost tracking-wide hover:bg-red-700 transition">
+                Join Us This Sunday
+            </button>
+        </div>
+
+        <!-- SERVICE TIMES -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-white z-20">
+
+            <!-- PILL -->
+            <div class="mb-4 px-4 py-1 bg-white/10 backdrop-blur-md rounded-full 
+                        text-sm md:text-md font-body tracking-wide 
+                        flex items-center justify-center">
+                ⏱️ Service Times
+            </div>
+
+            <!-- TIMES -->
+            <div class="flex space-x-10">
+
+                <!-- SUNDAY -->
+                <div class="text-center">
+                    <div class="font-jost text-2xl md:text-4xl leading-tight">9:45AM</div>
+                    <div class="font-body text-sm md:text-base tracking-wide uppercase opacity-80">Sunday</div>
+                </div>
+
+                <!-- TUESDAY -->
+                <div class="text-center">
+                    <div class="font-jost text-2xl md:text-4xl leading-tight">6:00PM</div>
+                    <div class="font-body text-sm md:text-base tracking-wide uppercase opacity-80">Tuesday</div>
+                </div>
+
+                <!-- FRIDAY -->
+                <div class="text-center">
+                    <div class="font-jost text-2xl md:text-4xl leading-tight">6:00PM</div>
+                    <div class="font-body text-sm md:text-base tracking-wide uppercase opacity-80">Friday</div>
+                </div>
+
+            </div>
+
+            <!-- LOCATION LABEL PILL -->
+            <div class="mt-6 px-4 py-1 bg-white/10 backdrop-blur-md rounded-full 
+                        text-sm md:text-md font-body tracking-wide 
+                        flex items-center justify-center text-white">
+                📍 Location
+            </div>
+
+            <!-- ADDRESS TEXT -->
+            <p class="mt-2 font-jost text-2xl md:text-4xl text-white text-center">
+                1138 Millersport Highway, Buffalo NY, 14226
+            </p>
+
+        </div>
+
+    </header>
+
+    <!-- ABOUT / WELCOME SECTION -->
+    <section class="px-6 py-12 bg-white text-gray-900 reveal">
+
+        <div class="flex justify-center mb-4">
+        <div class="px-5 py-1 bg-gray-900/5 backdrop-blur-sm rounded-full 
+                        text-sm font-body tracking-wide text-gray-900 
+                        flex items-center justify-center">
+                👏 You are Welcome
+            </div>
+        </div>
+
+        <!-- TITLE -->
+        <h2 class="font-impact text-4xl md:text-5xl text-center tracking-wide mb-6 font-semibold">
+            WELCOME TO <br/>DLBC BUFFALO
+        </h2>
+
+        <!-- SHORT PARAGRAPH -->
+        <p class="font-jost text-xl md:text-2xl max-w-6xl text-center mx-auto leading-relaxed mb-12">
+            We are a community of believers committed to loving God, growing in His Word, 
+            and showing His love to everyone. Whether you are joining us for the first time 
+            or returning home, you belong here.
+        </p>
+
+        <!-- OUR VALUES PILL -->
+        <div class="flex justify-center mb-8 lg:mb-10">
+            <div class="px-5 py-1 bg-gray-900/5 backdrop-blur-sm rounded-full 
+                        text-sm font-body tracking-wide text-gray-900 
+                        flex items-center justify-center">
+                ✨ Our Values
+            </div>
+        </div>
+
+        <!-- VALUES GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto reveal">
+
+            <div x-data="{ flipped: false }" class="w-full perspective">
+
+                <!-- CARD WRAPPER -->
+                <div 
+                    @click="flipped = !flipped" 
+                    class="relative h-64 transition-transform duration-700 transform-style-preserve-3d cursor-pointer"
+                    :class="flipped ? 'rotate-y-180' : ''">
+
+                    <!-- FRONT SIDE -->
+                    <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
+
+                        <!-- BACKGROUND IMAGE -->
+                        <div class="absolute inset-0 bg-[url('/Pics/bible.jpg')] bg-cover bg-center"></div>
+
+                        <!-- DARK OVERLAY -->
+                        <div class="absolute inset-0 bg-black/70"></div>
+
+                        <!-- CONTENT -->
+                        <div class="absolute inset-0 p-6 text-white flex flex-col justify-between z-10">
+
+                            <!-- NUMBER -->
+                            <div class="text-7xl font-impact font-bold opacity-60">
+                                01
+                            </div>
+
+                            <!-- TITLE -->
+                            <h3 class="text-2xl font-jost font-semibold">
+                                Jesus Only Is Our Message
+                            </h3>
+
+                            <!-- TEXT LINK -->
+                            <span class="font-jost underline underline-offset-4 text-sm opacity-90">
+                                Read More
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- BACK SIDE -->
+                    <div class="absolute inset-0 bg-[#000000] text-white p-6 rounded-xl rotate-y-180 backface-hidden flex flex-col justify-between">
+
+                        <!-- NUMBER -->
+                        <div class="text-2xl font-impact font-bold opacity-30">
+                            Jesus Only Is Our Message
+                        </div>
+
+                        <!-- DESCRIPTION -->
+                        <p class="font-jost leading-relaxed text-md">
+                            Everything we teach, believe, and practice reflects our devotion to Jesus Christ.
+                            He is the way, the truth, and the life.
+                            <br><span class="italic block mt-2">John 14:6</span>
+                        </p>
+
+                        <!-- TEXT LINK -->
+                        <span class="font-jost underline underline-offset-4 text-sm opacity-90">
+                            Close
+                        </span>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <style>
+                .perspective {
+                    perspective: 1000px;
+                }
+                .backface-hidden {
+                    backface-visibility: hidden;
+                    -webkit-backface-visibility: hidden;
+                }
+                .transform-style-preserve-3d {
+                    transform-style: preserve-3d;
+                }
+                .rotate-y-180 {
+                    transform: rotateY(180deg);
+                }
+            </style>
+
+            <div x-data="{ flipped: false }" class="w-full perspective">
+
+                <!-- CARD WRAPPER -->
+                <div 
+                    @click="flipped = !flipped" 
+                    class="relative h-64 transition-transform duration-700 transform-style-preserve-3d cursor-pointer"
+                    :class="flipped ? 'rotate-y-180' : ''">
+
+                    <!-- FRONT SIDE -->
+                    <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
+
+                        <!-- BACKGROUND IMAGE -->
+                        <div class="absolute inset-0 bg-[url('/Pics/keeper.jpg')] bg-cover bg-center"></div>
+
+                        <!-- DARK OVERLAY -->
+                        <div class="absolute inset-0 bg-black/70"></div>
+
+                        <!-- CONTENT -->
+                        <div class="absolute inset-0 p-6 text-white flex flex-col justify-between z-10">
+
+                            <!-- NUMBER -->
+                            <div class="text-7xl font-impact font-bold opacity-60">
+                                02
+                            </div>
+
+                            <!-- TITLE -->
+                            <h3 class="text-2xl font-jost font-semibold">
+                                Be Your Brother's Keeper
+                            </h3>
+
+                            <!-- TEXT LINK -->
+                            <span class="font-jost underline underline-offset-4 text-sm opacity-90">
+                                Read More
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BACK SIDE -->
+                    <div class="absolute inset-0 bg-[#000000] text-white p-6 rounded-xl rotate-y-180 backface-hidden flex flex-col justify-between">
+
+                        <!-- NUMBER -->
+                        <div class="text-2xl font-impact font-bold opacity-30">
+                            Be Your Brother’s Keeper
+                        </div>
+
+                        <!-- DESCRIPTION -->
+                        <p class="font-jost leading-relaxed text-md">
+                            We believe in compassion, unity, and caring for one another.
+                            Christ calls us to bear each other's burdens and to love genuinely.
+                            <br><span class="italic block mt-2">Galatians 6:2</span>
+                        </p>
+
+                        <!-- TEXT LINK -->
+                        <span class="font-jost underline underline-offset-4 text-sm opacity-90">
+                            Close
+                        </span>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div x-data="{ flipped: false }" class="w-full perspective">
+
+                <!-- CARD WRAPPER -->
+                <div 
+                    @click="flipped = !flipped" 
+                    class="relative h-64 transition-transform duration-700 transform-style-preserve-3d cursor-pointer"
+                    :class="flipped ? 'rotate-y-180' : ''">
+
+                    <!-- FRONT SIDE -->
+                    <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
+
+                        <!-- BACKGROUND IMAGE -->
+                        <div class="absolute inset-0 bg-[url('/Pics/growth.jpg')] bg-cover bg-center"></div>
+
+                        <!-- DARK OVERLAY -->
+                        <div class="absolute inset-0 bg-black/70"></div>
+
+                        <!-- CONTENT -->
+                        <div class="absolute inset-0 p-6 text-white flex flex-col justify-between z-10">
+
+                            <!-- NUMBER -->
+                            <div class="text-7xl font-impact font-bold opacity-60">
+                                03
+                            </div>
+
+                            <!-- TITLE -->
+                            <h3 class="text-2xl font-jost font-semibold">
+                                Growing Through God’s Word
+                            </h3>
+
+                            <!-- TEXT LINK -->
+                            <span class="font-jost underline underline-offset-4 text-sm opacity-90">
+                                Read More
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- BACK SIDE -->
+                    <div class="absolute inset-0 bg-[#000000] text-white p-6 rounded-xl rotate-y-180 backface-hidden flex flex-col justify-between">
+
+                        <!-- NUMBER -->
+                        <div class="text-2xl font-impact font-bold opacity-30">
+                            Growing Through God’s Word
+                        </div>
+
+                        <!-- DESCRIPTION -->
+                        <p class="font-jost leading-relaxed text-md">
+                            Spiritual growth happens when we hear, study, and live by the Scriptures.
+                            God’s Word equips us for every good work and guides us daily.
+                            <br><span class="italic block mt-2">2 Timothy 3:16–17</span>
+                        </p>
+
+                        <!-- TEXT LINK -->
+                        <span class="font-jost underline underline-offset-4 text-sm opacity-90">
+                            Close
+                        </span>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR PASTORS SECTION -->
+    <section class="px-6 py-12 bg-gradient-to-b from-gray-100 to-gray-50 text-gray-900 reveal">
+
+        <div class="flex justify-center mb-4">
+            <div class="mb-4 px-4 py-1 bg-gray-900/10 backdrop-blur-sm rounded-full 
+                        text-sm md:text-base font-body tracking-wide text-gray-900 
+                        flex items-center justify-center">
+                🙋 Meet Our Leaders
+            </div>
+        </div>
+
+        <!-- HORIZONTAL LAYOUT WITH CONNECTING LINE -->
+        <div class="max-w-7xl mx-auto relative">
+            
+            <!-- Connecting Line (hidden on mobile) -->
+            <div class="hidden lg:block absolute top-32 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+            
+            <div class="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-8 lg:gap-16">
+
+                <!-- PASTOR 1 -->
+                <div class="flex flex-col items-center lg:flex-1 max-w-xs">
+                    <div class="w-52 h-52 rounded-full overflow-hidden shadow-xl border-4 border-white relative z-10">
+                        <img src="/Pics/mudi.jpg" alt="Local Pastor" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-jost text-2xl font-semibold mt-6 text-center">
+                        Bro Mudi Ojeme
+                    </h3>
+                    <p class="font-jost text-gray-600 text-sm uppercase tracking-wide text-center">
+                        Coordinator
+                    </p>
+                    <!-- <p class="font-jost text-gray-600 text-md uppercase tracking-wide text-center">
+                        1138 Millersport Highway, Buffalo NY, 14226
+                    </p> -->
+                </div>
+
+                <!-- PASTOR 2 -->
+                <div class="flex flex-col items-center lg:flex-1 max-w-xs">
+                    <div class="w-60 h-60 rounded-full overflow-hidden shadow-2xl border-4 border-white relative z-10">
+                        <img src="/Pics/kumuyi.jpg" alt="General Overseer" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-jost text-2xl font-semibold mt-6 text-center">
+                        Pastor W. F. Kumuyi
+                    </h3>
+                    <p class="font-jost text-gray-600 text-sm uppercase tracking-wide text-center">
+                        General Overseer
+                    </p>
+                </div>
+
+                <!-- PASTOR 3 -->
+                <div class="flex flex-col items-center lg:flex-1 max-w-xs">
+                    <div class="w-56 h-56 rounded-full overflow-hidden shadow-2xl border-4 border-white relative z-10">
+                        <img src="/Pics/bolaji.jpg" alt="Group Pastor" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-jost text-2xl font-semibold mt-6 text-center">
+                        Pastor Bolaji Thomas
+                    </h3>
+                    <p class="font-jost text-gray-600 text-sm uppercase tracking-wide text-center">
+                        Pastor-in-charge
+                    </p>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- UPCOMING EVENTS SECTION -->
+    <section class="px-6 py-8 lg:py-16 bg-white text-gray-900 lg:mb-8 reveal">
+
+        <div class="flex justify-center mb-4">
+            <div class="mb-4 px-4 py-1 bg-gray-900/5 backdrop-blur-sm rounded-full 
+                        text-sm md:text-base font-body tracking-wide text-gray-900 
+                        flex items-center justify-center">
+                📋 Upcoming Events
+            </div>
+        </div>
+
+        <!-- EVENTS GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+
+            <!-- EVENT 1 -->
+            <div class="bg-white rounded-xl p-6 border border-gray-200">
+
+                <!-- TITLE -->
+                <h3 class="font-impact text-2xl font-semibold text-gray-900 mb-4 underline decoration-red-600 decoration-2">
+                    Night Vigil
+                </h3>
+
+                <!-- DETAILS -->
+                <p class="font-jost text-gray-700 leading-relaxed text-lg mb-3">
+                    Join us for a powerful night of prayer, worship, and spiritual renewal.
+                </p>
+
+                <p class="font-jost text-gray-700 text-lg">
+                    <strong>Date:</strong> 28th of November, 2025<br>
+                    <strong>Time:</strong> 11:00 PM<br>
+                    <strong>Venue:</strong> 3699 West Henrietta Road, Rochester NY, 14620
+                </p>
+
+            </div>
+
+            <!-- EVENT 2 -->
+            <div class="bg-white rounded-xl p-6 border border-gray-200">
+
+                <!-- TITLE -->
+                <h3 class="font-impact text-2xl font-semibold text-gray-900 mb-4 underline decoration-red-600 decoration-2">
+                    Thanksgiving Service
+                </h3>
+
+                <!-- DETAILS -->
+                <p class="font-jost text-gray-700 leading-relaxed text-lg mb-3">
+                    A special service dedicated to gratitude, worship, and praising God 
+                    for His goodness throughout the year.
+                </p>
+
+                <p class="font-jost text-gray-700 text-lg">
+                    <strong>Date:</strong> 30th of November, 2025<br>
+                    <strong>Time:</strong> 9:45 AM<br>
+                    <strong>Venue:</strong> 3699 West Henrietta Road, Rochester NY, 14620
+                </p>
+            </div>
+        </div>
+    </section>
+
+<section class="bg-black pt-12 reveal">
+
+    <!-- RE-OCCURRING EVENTS -->
+    <div id="events" class="max-w-7xl mx-auto px-6 mb-16">
+
+        <div class="text-center mb-10">
+            <div class="flex justify-center">
+                <div class="mb-4 px-4 py-1 bg-gray-50 backdrop-blur-sm rounded-full 
+                            text-sm md:text-base font-body tracking-wide text-gray-900 
+                            flex items-center justify-center">
+                    📋 Re-occuring Events
+                </div>
+            </div>
+
+            <p class="text-white text-2xl lg:text-2xl font-jost">
+                Stay connected and be part of our regular gatherings and programs.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="rounded-xl overflow-hidden shadow-md border hover:shadow-lg transition">
+                <img src="./Pics/Upstate.svg" class="w-full h-auto object-cover">
+            </div>
+
+            <div class="rounded-xl overflow-hidden shadow-md border hover:shadow-lg transition">
+                <img src="./Pics/Vigil.svg" class="w-full h-auto object-cover">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SLIDER / WORSHIP HERO -->
+    <div 
+        x-data="{
+            slides: [
+                { img: '/Pics/worship.jpg', text: 'We worship in spirit and truth.' },
+                { img: '/Pics/worship2.jpg', text: 'We are a chosen generation.' },
+                { img: '/Pics/worship3.jpg', text: 'We are called forth to show His excellence.' },
+                { img: '/Pics/worship4.jpg', text: 'Holiness unto the Lord is our watchword and song.' }
+            ],
+            current: 0,
+            init() {
+                setInterval(() => {
+                    this.current = (this.current + 1) % this.slides.length;
+                }, 6000);
+            }
+        }"
+        class="relative w-full h-80 md:h-120 lg:h-[40rem] overflow-hidden"
+    >
+
+        <!-- IMAGE SLIDES -->
+        <template x-for="(slide, index) in slides" :key="'img-'+index">
+            <div 
+                class="absolute inset-0 transition-opacity duration-[1200ms]"
+                x-bind:style="`background-image: url('${slide.img}');
+                              background-size: cover;
+                              background-position: center;`"
+                x-bind:class="current === index ? 'opacity-100' : 'opacity-0'"
+            >
+                <div class="absolute inset-0 bg-black/60"></div>
+            </div>
+        </template>
+
+        <!-- TEXT SLIDES -->
+        <div class="absolute bottom-8 left-6 lg:bottom-16 lg:left-24 z-20 w-full max-w-xs md:max-w-3xl">
+            <div class="relative">
+                <template x-for="(slide, index) in slides" :key="'text-'+index">
+                    <h2 
+                        class="font-impact text-4xl md:text-5xl lg:text-7xl font-semibold text-white leading-tight
+                               transition-opacity duration-700 ease-in-out absolute bottom-0 left-0"
+                        x-bind:class="current === index ? 'opacity-100' : 'opacity-0'"
+                        x-text="slide.text"
+                    ></h2>
+                </template>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT & PRAYER REQUEST SECTION -->
+<section id="contact" class="text-gray-900">
+
+  <!-- ================= CONTACT US SECTION ================= -->
+  <div class="bg-gray-50 py-20 px-6 md:px-16">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+      <!-- LEFT: CONTACT TEXT -->
+      <div class="space-y-6">
+        <div class="flex justify-center md:justify-start">
+          <div class="px-5 py-1 bg-gray-900/10 backdrop-blur-sm rounded-full 
+                      text-sm font-body tracking-wide text-gray-900 
+                      flex items-center justify-center">
+            📞 Get in Touch
+          </div>
+        </div>
+
+        <h2 class="font-impact text-4xl md:text-5xl font-semibold leading-tight">
+          Contact Us
+        </h2>
+
+        <p class="font-jost text-lg opacity-90 leading-relaxed max-w-md">
+          We’d love to hear from you — whether you have a question about our services, 
+          upcoming events, or how to be part of our growing family. 
+          Reach out anytime — we’ll respond promptly and with love.
+        </p>
+
+        <!-- CONTACT DETAILS -->
+        <div class="font-jost text-lg opacity-90 space-y-2">
+          <p>📍 1138 Millersport Highway, Buffalo, NY 14226</p>
+          <p>📧 <a href="mailto:dlbcbuffalo@gmail.com" class="text-[#061c36] hover:text-red-600 transition">dlbcbuffalo@gmail.com</a></p>
+          <p>📞 <a href="tel:+17165551234" class="text-[#061c36] hover:text-red-600 transition">(716) 555-1234</a></p>
+        </div>
+      </div>
+
+      <!-- RIGHT: CONTACT ILLUSTRATION -->
+      <div class="flex justify-center">
+        <img src="./Pics/contact.jpg" alt="Contact Illustration" 
+             class="w-full max-w-md md:max-w-lg object-contain">
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="w-full border-t border-gray-300/50"></div>
+
+  <!-- ================= PRAYER REQUEST SECTION ================= -->
+  <div class="bg-white py-20 px-6 md:px-16">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+
+      <!-- LEFT TEXT -->
+      <div class="space-y-6">
+        <div class="flex justify-center md:justify-start">
+          <div class="px-5 py-1  bg-gray-900/10 rounded-full 
+                      text-sm font-body tracking-wide">
+            🙏 Share Your Prayer Request
+          </div>
+        </div>
+
+        <h2 class="font-impact text-4xl md:text-5xl font-semibold leading-tight text-[#061c36]">
+          We’ll Stand in Prayer with You
+        </h2>
+
+        <p class="font-jost text-lg opacity-90 leading-relaxed max-w-md">
+          Our prayer team is here to stand with you in faith. 
+          No matter what you’re believing God for, we’ll join you in prayer 
+          and trust Him for mighty answers.
+        </p>
+      </div>
+
+      <!-- RIGHT: PRAYER REQUEST FORM -->
+      <div class="bg-gray-50 rounded-2xl shadow-xs p-8 md:p-10">
+        <form action="#" method="POST" class="space-y-6">
+
+          <div>
+            <label for="prayer-name" class="block font-jost text-gray-700 font-medium mb-2">
+              Full Name (optional)
+            </label>
+            <input type="text" id="prayer-name" name="prayer-name"
+                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent font-jost"
+                   placeholder="Enter your name">
+          </div>
+
+          <div>
+            <label for="prayer-request" class="block font-jost text-gray-700 font-medium mb-2">
+              Your Prayer Request
+            </label>
+            <textarea id="prayer-request" name="prayer-request" rows="6"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent font-jost resize-none"
+                      placeholder="Write your prayer request here..." required></textarea>
+          </div>
+
+          <div class="flex justify-center md:justify-end">
+            <button type="submit"
+                    class="px-8 py-3 bg-red-600 text-white font-jost font-semibold rounded-full hover:bg-red-700 transition shadow-md">
+              Submit Request
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+
+    <footer class="bg-[#061c36] text-white px-6 py-12 justify-center items-center text-center reveal">
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- ABOUT -->
+        <div>
+
+            <!-- LOGO + NAME INLINE -->
+            <div class="flex items-center justify-center space-x-3">
+                <img src="/Pics/logo.png" alt="DLBC Logo" class="h-12 w-12 object-contain">
+                <h3 class="font-impact text-4xl tracking-wide">DLBC BUFFALO</h3>
+            </div>
+
+            <!-- DESCRIPTION -->
+            <p class="font-jost text-xl leading-relaxed opacity-90 mt-3">
+                A Christ-centered community committed to worship, discipleship, 
+                and love. You belong here and we can't wait to meet you.
+            </p>
+
+        </div>
+
+        <!-- LOCATION -->
+        <div>
+            <h4 class="font-body text-lg mb-3 tracking-wide">
+                📍Location
+            </h4>
+            <p class="font-jost text-xl opacity-90 leading-relaxed">
+                1138 Millersport Highway<br>
+                Buffalo, NY 14226
+            </p>
+        </div>
+
+        <!-- SERVICE TIMES -->
+        <div>
+            <h4 class="font-body text-lg mb-3 tracking-wide">
+                ⏱️ Service Times
+            </h4>
+            <p class="font-jost text-xl opacity-90 leading-relaxed">
+                Sunday — 9:45 AM <br>
+                Tuesday — 6:00 PM <br>
+                Friday — 6:00 PM
+            </p>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div>
+            <h4 class="font-body text-lg mb-3 tracking-wide">
+                🔗 Quick Links
+            </h4>
+            <ul class="space-y-2 font-jost text-xl opacity-90">
+                <li><a href="#" class="hover:text-red-300 transition">Home</a></li>
+                <li><a href="#" class="hover:text-red-300 transition">About Us</a></li>
+                <li><a href="#" class="hover:text-red-300 transition">Our Values</a></li>
+                <li><a href="#" class="hover:text-red-300 transition">Events</a></li>
+                <li><a href="#" class="hover:text-red-300 transition">Contact</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="border-t border-white/10 mt-10 pt-6 text-center">
+        <p class="font-body text-lg opacity-70">
+            © <span x-text="new Date().getFullYear()"></span> DLBC Buffalo. All Rights Reserved.
+        </p>
+    </div>
+
+</footer>
+
+<!-- BACK TO TOP BUTTON -->
+<div 
+    x-data="{ show: false }"
+    x-init="
+        window.addEventListener('scroll', () => {
+            show = window.scrollY > 400;
+        })
+    "
+    x-show="show"
+    x-transition
+    class="fixed bottom-6 right-6 z-50"
+>
+    <button 
+        @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        class="w-12 h-12 flex items-center justify-center rounded-full 
+               bg-red-600 text-white shadow-lg hover:bg-red-700 
+               transition font-bold text-2xl"
+    >
+        ↑
+    </button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("reveal-active");
+                // Uncomment to animate only once:
+                // observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    reveals.forEach(el => observer.observe(el));
+});
+</script>
+
+
+
+
+</body>
+</html>
