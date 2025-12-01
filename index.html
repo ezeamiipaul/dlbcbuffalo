@@ -31,6 +31,32 @@
             opacity: 0;
             transform: translateX(40px);
         }
+        .perspective {
+          perspective: 1000px;
+          -webkit-perspective: 1000px;
+        }
+        
+        .backface-hidden {
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+          transform-style: preserve-3d;
+          -webkit-transform-style: preserve-3d;
+        }
+        
+        .transform-style-preserve-3d {
+          transform-style: preserve-3d;
+          -webkit-transform-style: preserve-3d;
+        }
+        
+        .rotate-y-180 {
+          transform: rotateY(180deg);
+          -webkit-transform: rotateY(180deg);
+        }
+        
+        .perspective > div {
+          overflow: visible; /* prevents iOS ghost rendering */
+        }
+
 
     </style>
 </head>
@@ -195,7 +221,7 @@
                         text-sm font-body tracking-wide text-gray-900 
                         flex items-center justify-center">
                 👏 You are Welcome
-            </div>
+        </div>
         </div>
 
         <!-- TITLE -->
@@ -211,234 +237,117 @@
         </p>
 
         <!-- OUR VALUES PILL -->
-        <div class="flex justify-center mb-8 lg:mb-10">
-            <div class="px-5 py-1 bg-gray-900/5 backdrop-blur-sm rounded-full 
-                        text-sm font-body tracking-wide text-gray-900 
-                        flex items-center justify-center">
-                ✨ Our Values
-            </div>
+        <div class="flex justify-center mb-8">
+        <div class="px-5 py-1 bg-gray-900/5 backdrop-blur-sm rounded-full 
+                    text-sm font-body tracking-wide text-gray-900 
+                    flex items-center justify-center">
+        ✨ Our Values
+        </div>
         </div>
 
         <!-- VALUES GRID -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto reveal">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
 
+            <!-- CARD 01 -->
             <div x-data="{ flipped: false }" class="w-full perspective">
+            <div 
+                @click="flipped = !flipped"
+                class="relative h-64 transition-transform duration-700 transform-style-preserve-3d cursor-pointer"
+                :class="flipped ? 'rotate-y-180' : ''"
+            >
 
-                <!-- CARD WRAPPER -->
-                <div 
-                    @click="flipped = !flipped" 
-                    class="relative h-64 transition-transform duration-700 transform-style-preserve-3d cursor-pointer"
-                    :class="flipped ? 'rotate-y-180' : ''">
+                <!-- FRONT -->
+                <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
+                <div class="absolute inset-0 bg-[url('/Pics/bible.jpg')] bg-cover bg-center"></div>
+                <div class="absolute inset-0 bg-black/70"></div>
+                <div class="absolute inset-0 p-6 text-white flex flex-col justify-between z-10">
+                    <div class="text-7xl font-impact font-bold opacity-60">01</div>
+                    <h3 class="text-2xl font-jost font-semibold">Jesus Only Is Our Message</h3>
+                    <span class="font-jost underline underline-offset-4 text-sm opacity-90">
+                    Read More
+                    </span>
+                </div>
+                </div>
 
-                    <!-- FRONT SIDE -->
-                    <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
-
-                        <!-- BACKGROUND IMAGE -->
-                        <div 
-                          class="absolute inset-0 bg-cover bg-center"
-                          style="background-image: url('./Pics/bible.jpg');">
-                        </div>
-
-
-                        <!-- DARK OVERLAY -->
-                        <div class="absolute inset-0 bg-black/70"></div>
-
-                        <!-- CONTENT -->
-                        <div class="absolute inset-0 p-6 text-white flex flex-col justify-between z-10">
-
-                            <!-- NUMBER -->
-                            <div class="text-7xl font-impact font-bold opacity-60">
-                                01
-                            </div>
-
-                            <!-- TITLE -->
-                            <h3 class="text-2xl font-jost font-semibold">
-                                Jesus Only Is Our Message
-                            </h3>
-
-                            <!-- TEXT LINK -->
-                            <span class="font-jost underline underline-offset-4 text-sm opacity-90">
-                                Read More
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                    <!-- BACK SIDE -->
-                    <div class="absolute inset-0 bg-[#000000] text-white p-6 rounded-xl rotate-y-180 backface-hidden flex flex-col justify-between">
-
-                        <!-- NUMBER -->
-                        <div class="text-2xl font-impact font-bold opacity-30">
-                            Jesus Only Is Our Message
-                        </div>
-
-                        <!-- DESCRIPTION -->
-                        <p class="font-jost leading-relaxed text-md">
-                            Everything we teach, believe, and practice reflects our devotion to Jesus Christ.
-                            He is the way, the truth, and the life.
-                            <br><span class="italic block mt-2">John 14:6</span>
-                        </p>
-
-                        <!-- TEXT LINK -->
-                        <span class="font-jost underline underline-offset-4 text-sm opacity-90">
-                            Close
-                        </span>
-
-                    </div>
-
+                <!-- BACK -->
+                <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden rotate-y-180 bg-black text-white p-6 flex flex-col justify-between">
+                <div class="text-2xl font-impact font-bold opacity-30">Jesus Only Is Our Message</div>
+                <p class="font-jost leading-relaxed text-md">
+                    Everything we teach, believe, and practice reflects our devotion to Jesus Christ.
+                    He is the way, the truth, and the life.
+                    <br><span class="italic block mt-2">John 14:6</span>
+                </p>
+                <span class="font-jost underline underline-offset-4 text-sm opacity-90">Close</span>
                 </div>
             </div>
-
-            <style>
-                .perspective {
-                    perspective: 1000px;
-                }
-                .backface-hidden {
-                    backface-visibility: hidden;
-                    -webkit-backface-visibility: hidden;
-                }
-                .transform-style-preserve-3d {
-                    transform-style: preserve-3d;
-                }
-                .rotate-y-180 {
-                    transform: rotateY(180deg);
-                }
-            </style>
-
-            <div x-data="{ flipped: false }" class="w-full perspective">
-
-                <!-- CARD WRAPPER -->
-                <div 
-                    @click="flipped = !flipped" 
-                    class="relative h-64 transition-transform duration-700 transform-style-preserve-3d cursor-pointer"
-                    :class="flipped ? 'rotate-y-180' : ''">
-
-                    <!-- FRONT SIDE -->
-                    <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
-
-                        <!-- BACKGROUND IMAGE -->
-                        <div 
-                          class="absolute inset-0 bg-cover bg-center"
-                          style="background-image: url('./Pics/keeper.jpg');">
-                        </div>
-
-                        <!-- DARK OVERLAY -->
-                        <div class="absolute inset-0 bg-black/70"></div>
-
-                        <!-- CONTENT -->
-                        <div class="absolute inset-0 p-6 text-white flex flex-col justify-between z-10">
-
-                            <!-- NUMBER -->
-                            <div class="text-7xl font-impact font-bold opacity-60">
-                                02
-                            </div>
-
-                            <!-- TITLE -->
-                            <h3 class="text-2xl font-jost font-semibold">
-                                Be Your Brother's Keeper
-                            </h3>
-
-                            <!-- TEXT LINK -->
-                            <span class="font-jost underline underline-offset-4 text-sm opacity-90">
-                                Read More
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- BACK SIDE -->
-                    <div class="absolute inset-0 bg-[#000000] text-white p-6 rounded-xl rotate-y-180 backface-hidden flex flex-col justify-between">
-
-                        <!-- NUMBER -->
-                        <div class="text-2xl font-impact font-bold opacity-30">
-                            Be Your Brother’s Keeper
-                        </div>
-
-                        <!-- DESCRIPTION -->
-                        <p class="font-jost leading-relaxed text-md">
-                            We believe in compassion, unity, and caring for one another.
-                            Christ calls us to bear each other's burdens and to love genuinely.
-                            <br><span class="italic block mt-2">Galatians 6:2</span>
-                        </p>
-
-                        <!-- TEXT LINK -->
-                        <span class="font-jost underline underline-offset-4 text-sm opacity-90">
-                            Close
-                        </span>
-
-                    </div>
-
-                </div>
             </div>
 
+            <!-- CARD 02 -->
             <div x-data="{ flipped: false }" class="w-full perspective">
+            <div 
+                @click="flipped = !flipped"
+                class="relative h-64 transition-transform duration-700 transform-style-preserve-3d cursor-pointer"
+                :class="flipped ? 'rotate-y-180' : ''"
+            >
 
-                <!-- CARD WRAPPER -->
-                <div 
-                    @click="flipped = !flipped" 
-                    class="relative h-64 transition-transform duration-700 transform-style-preserve-3d cursor-pointer"
-                    :class="flipped ? 'rotate-y-180' : ''">
-
-                    <!-- FRONT SIDE -->
-                    <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
-
-                        <!-- BACKGROUND IMAGE -->
-                        <div 
-                          class="absolute inset-0 bg-cover bg-center"
-                          style="background-image: url('./Pics/growth.jpg');">
-                        </div>
-
-                        <!-- DARK OVERLAY -->
-                        <div class="absolute inset-0 bg-black/70"></div>
-
-                        <!-- CONTENT -->
-                        <div class="absolute inset-0 p-6 text-white flex flex-col justify-between z-10">
-
-                            <!-- NUMBER -->
-                            <div class="text-7xl font-impact font-bold opacity-60">
-                                03
-                            </div>
-
-                            <!-- TITLE -->
-                            <h3 class="text-2xl font-jost font-semibold">
-                                Growing Through God’s Word
-                            </h3>
-
-                            <!-- TEXT LINK -->
-                            <span class="font-jost underline underline-offset-4 text-sm opacity-90">
-                                Read More
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                    <!-- BACK SIDE -->
-                    <div class="absolute inset-0 bg-[#000000] text-white p-6 rounded-xl rotate-y-180 backface-hidden flex flex-col justify-between">
-
-                        <!-- NUMBER -->
-                        <div class="text-2xl font-impact font-bold opacity-30">
-                            Growing Through God’s Word
-                        </div>
-
-                        <!-- DESCRIPTION -->
-                        <p class="font-jost leading-relaxed text-md">
-                            Spiritual growth happens when we hear, study, and live by the Scriptures.
-                            God’s Word equips us for every good work and guides us daily.
-                            <br><span class="italic block mt-2">2 Timothy 3:16–17</span>
-                        </p>
-
-                        <!-- TEXT LINK -->
-                        <span class="font-jost underline underline-offset-4 text-sm opacity-90">
-                            Close
-                        </span>
-
-                    </div>
-
+                <!-- FRONT -->
+                <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
+                <div class="absolute inset-0 bg-[url('/Pics/keeper.jpg')] bg-cover bg-center"></div>
+                <div class="absolute inset-0 bg-black/70"></div>
+                <div class="absolute inset-0 p-6 text-white flex flex-col justify-between z-10">
+                    <div class="text-7xl font-impact font-bold opacity-60">02</div>
+                    <h3 class="text-2xl font-jost font-semibold">Be Your Brother’s Keeper</h3>
+                    <span class="font-jost underline underline-offset-4 text-sm opacity-90">
+                    Read More
+                    </span>
                 </div>
+                </div>
+
+                <!-- BACK -->
+                <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden rotate-y-180 bg-black text-white p-6 flex flex-col justify-between">
+                <div class="text-2xl font-impact font-bold opacity-30">Be Your Brother’s Keeper</div>
+                <p class="font-jost leading-relaxed text-md">
+                    We believe in compassion, unity, and caring for one another.
+                    Christ calls us to bear each other's burdens and to love genuinely.
+                    <br><span class="italic block mt-2">Galatians 6:2</span>
+                </p>
+                <span class="font-jost underline underline-offset-4 text-sm opacity-90">Close</span>
+                </div>
+            </div>
+            </div>
+
+            <!-- CARD 03 -->
+            <div x-data="{ flipped: false }" class="w-full perspective">
+            <div 
+                @click="flipped = !flipped"
+                class="relative h-64 transition-transform duration-700 transform-style-preserve-3d cursor-pointer"
+                :class="flipped ? 'rotate-y-180' : ''"
+            >
+
+                <!-- FRONT -->
+                <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
+                <div class="absolute inset-0 bg-[url('/Pics/growth.jpg')] bg-cover bg-center"></div>
+                <div class="absolute inset-0 bg-black/70"></div>
+                <div class="absolute inset-0 p-6 text-white flex flex-col justify-between z-10">
+                    <div class="text-7xl font-impact font-bold opacity-60">03</div>
+                    <h3 class="text-2xl font-jost font-semibold">Growing Through God’s Word</h3>
+                    <span class="font-jost underline underline-offset-4 text-sm opacity-90">
+                    Read More
+                    </span>
+                </div>
+                </div>
+
+                <!-- BACK -->
+                <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden rotate-y-180 bg-black text-white p-6 flex flex-col justify-between">
+                <div class="text-2xl font-impact font-bold opacity-30">Growing Through God’s Word</div>
+                <p class="font-jost leading-relaxed text-md">
+                    Spiritual growth happens when we hear, study, and live by the Scriptures.
+                    God’s Word equips us for every good work and guides us daily.
+                    <br><span class="italic block mt-2">2 Timothy 3:16–17</span>
+                </p>
+                <span class="font-jost underline underline-offset-4 text-sm opacity-90">Close</span>
+                </div>
+            </div>
             </div>
         </div>
     </section>
@@ -764,12 +673,12 @@
 
             <!-- LOGO + NAME INLINE -->
             <div class="flex items-center justify-center space-x-3">
-                <img src="/Pics/logo.png" alt="DLBC Logo" class="h-12 w-12 object-contain">
+                <img src="./Pics/logo.png" alt="DLBC Logo" class="h-12 w-12 object-contain">
                 <h3 class="font-impact text-4xl tracking-wide">DLBC BUFFALO</h3>
             </div>
 
             <!-- DESCRIPTION -->
-            <p class="font-jost text-xl leading-relaxed opacity-90 mt-3">
+            <p class="font-jost text-xl leading-relaxed opacity-90 mt-3 text-left">
                 A Christ-centered community committed to worship, discipleship, 
                 and love. You belong here and we can't wait to meet you.
             </p>
@@ -904,6 +813,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+
 
 
 
