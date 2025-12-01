@@ -258,7 +258,10 @@
 
                 <!-- FRONT -->
                 <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
-                <div class="absolute inset-0 bg-[url('./Pics/bible.jpg')] bg-cover bg-center"></div>
+                <div 
+                  class="absolute inset-0 bg-cover bg-center"
+                  style="background-image: url('./Pics/bible.jpg');">
+                </div>
                 <div class="absolute inset-0 bg-black/70"></div>
                 <div class="absolute inset-0 p-6 text-white flex flex-col justify-between z-10">
                     <div class="text-7xl font-impact font-bold opacity-60">01</div>
@@ -292,7 +295,10 @@
 
                 <!-- FRONT -->
                 <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
-                <div class="absolute inset-0 bg-[url('./Pics/keeper.jpg')] bg-cover bg-center"></div>
+                <div 
+                  class="absolute inset-0 bg-cover bg-center"
+                  style="background-image: url('./Pics/keeper.jpg');">
+                </div>
                 <div class="absolute inset-0 bg-black/70"></div>
                 <div class="absolute inset-0 p-6 text-white flex flex-col justify-between z-10">
                     <div class="text-7xl font-impact font-bold opacity-60">02</div>
@@ -326,7 +332,10 @@
 
                 <!-- FRONT -->
                 <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
-                <div class="absolute inset-0 bg-[url('./Pics/growth.jpg')] bg-cover bg-center"></div>
+                <div 
+                  class="absolute inset-0 bg-cover bg-center"
+                  style="background-image: url('./Pics/growth.jpg');">
+                </div>
                 <div class="absolute inset-0 bg-black/70"></div>
                 <div class="absolute inset-0 p-6 text-white flex flex-col justify-between z-10">
                     <div class="text-7xl font-impact font-bold opacity-60">03</div>
@@ -562,39 +571,25 @@
 <!-- CONTACT & PRAYER REQUEST SECTION -->
 <section id="contact" class="bg-white text-gray-900 py-12 px-6 md:px-16 reveal">
   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-
     <!-- LEFT: CONTACT DETAILS -->
-    <div class="space-y-6">
-      <div class="flex justify-center md:justify-start">
-        <div class="px-5 py-1 bg-gray-900/10 rounded-full 
-                    text-sm font-body tracking-wide text-gray-900">
-          📞 Get in Touch
+        <div class="space-y-6 pl-0">
+          <div class="flex justify-center md:justify-start">
+            <div class="px-5 py-1 bg-gray-900/10 rounded-full 
+                        text-sm font-body tracking-wide text-gray-900">
+              📞 Get in Touch
+            </div>
+          </div>
+        
+          <h2 class="font-impact text-4xl md:text-5xl font-semibold leading-tight text-[#061c36] text-center md:text-left m-0">
+            Contact Us
+          </h2>
+        
+          <p class="font-jost text-lg opacity-90 leading-relaxed max-w-md mx-0 text-left m-0">
+            We’d love to hear from you, whether you have a question about our services, 
+            upcoming events, or how to be part of our growing family. 
+            Reach out anytime, we will respond promptly and with love.
+          </p>
         </div>
-      </div>
-
-      <h2 class="font-impact text-4xl md:text-5xl font-semibold leading-tight text-[#061c36] text-center md:text-left">
-        Contact Us
-      </h2>
-
-      <p class="font-jost text-lg opacity-90 leading-relaxed max-w-md mx-auto md:mx-0">
-        We’d love to hear from you, whether you have a question about our services, 
-        upcoming events, or how to be part of our growing family. 
-        Reach out anytime, we will respond promptly and with love.
-      </p>
-
-      <div class="font-jost text-lg opacity-90 space-y-2">
-        <p>📍 1138 Millersport Highway, Buffalo NY, 14226</p>
-        <p>📧 
-          <a href="mailto:dlbcbuffalo@gmail.com" class="text-[#061c36] hover:text-red-600 transition">
-            dlbcbuffalo@gmail.com
-          </a>
-        </p>
-        <p>📞 
-          <a href="tel:+15303838773" class="text-[#061c36] hover:text-red-600 transition">
-            (530) 383-8773
-          </a>
-        </p>
-      </div>
     </div>
 
     <!-- RIGHT: PRAYER REQUEST FORM -->
@@ -813,6 +808,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+
 
 
 
