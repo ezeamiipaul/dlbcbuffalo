@@ -568,92 +568,116 @@
 
 </section>
 
-<!-- CONTACT & PRAYER REQUEST SECTION -->
-<section id="contact" class="bg-white text-gray-900 py-12 px-6 md:px-16 reveal">
+<!-- ================= CONTACT & PRAYER REQUEST SECTION ================= -->
+<section id="contact" class="bg-white text-gray-900 py-20 px-6 md:px-16 reveal">
   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+
     <!-- LEFT: CONTACT DETAILS -->
-        <div class="space-y-6 pl-0">
-          <div class="flex justify-center md:justify-start">
-            <div class="px-5 py-1 bg-gray-900/10 rounded-full 
-                        text-sm font-body tracking-wide text-gray-900">
-              📞 Get in Touch
-            </div>
-          </div>
-        
-          <h2 class="font-impact text-4xl md:text-5xl font-semibold leading-tight text-[#061c36] text-center md:text-left m-0">
-            Contact Us
-          </h2>
-        
-          <p class="font-jost text-lg opacity-90 leading-relaxed max-w-md mx-0 text-left m-0">
-            We’d love to hear from you, whether you have a question about our services, 
-            upcoming events, or how to be part of our growing family. 
-            Reach out anytime, we will respond promptly and with love.
-          </p>
+    <div class="space-y-6 pl-0">
+      <div class="flex justify-center md:justify-start">
+        <div class="px-5 py-1 bg-gray-900/10 rounded-full 
+                    text-sm font-body tracking-wide text-gray-900">
+          📞 Get in Touch
         </div>
+      </div>
+
+      <h2 class="font-impact text-4xl md:text-5xl font-semibold leading-tight text-[#061c36] text-center md:text-left m-0">
+        Contact Us
+      </h2>
+
+      <p class="font-jost text-lg opacity-90 leading-relaxed max-w-md mx-auto md:mx-0 text-center md:text-left m-0">
+        We’d love to hear from you, whether you have a question about our services, 
+        upcoming events, or how to be part of our growing family. 
+        Reach out anytime — we’ll respond promptly and with love.
+      </p>
+
+      <!-- CONTACT DETAILS -->
+      <div class="font-jost text-lg opacity-90 space-y-3 text-center md:text-left">
+        <p>📍 1138 Millersport Highway, Buffalo NY, 14226</p>
+        <p>📧 
+          <a href="mailto:dlbcbuffalo@gmail.com" class="text-[#061c36] hover:text-red-600 transition">
+            dlbcbuffalo@gmail.com
+          </a>
+        </p>
+        <p>📞 
+          <a href="tel:+15303838773" class="text-[#061c36] hover:text-red-600 transition">
+            (530) 383-8773
+          </a>
+        </p>
+      </div>
     </div>
 
     <!-- RIGHT: PRAYER REQUEST FORM -->
     <div class="bg-gray-50 rounded-2xl shadow-sm p-8 md:p-10">
-    <div class="flex justify-center md:justify-start mb-6">
+      <!-- Section Pill -->
+      <div class="flex justify-center md:justify-start mb-6">
         <div class="px-5 py-1 bg-gray-900/10 rounded-full 
                     text-sm font-body tracking-wide">
-        🙏 Share Your Prayer Request
+          🙏 Share Your Prayer Request
         </div>
+      </div>
+
+      <!-- Section Title -->
+      <h3 class="font-impact text-3xl md:text-4xl font-semibold leading-tight text-[#061c36] mb-6 text-center md:text-left">
+        We Will Stand in Prayer with You
+      </h3>
+
+      <!-- Prayer Form -->
+      <form 
+        id="prayer-form" 
+        action="https://formspree.io/f/xjknryok" 
+        method="POST" 
+        class="space-y-6"
+      >
+        <!-- Hidden Email Subject -->
+        <input type="hidden" name="_subject" value="New Prayer Request from DLBC Buffalo Website">
+
+        <!-- Name -->
+        <div>
+          <label for="prayer-name" class="block font-jost text-gray-700 font-medium mb-2">
+            Full Name (optional)
+          </label>
+          <input 
+            type="text" 
+            id="prayer-name" 
+            name="name"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none 
+                   focus:ring-2 focus:ring-red-500 focus:border-transparent font-jost"
+            placeholder="Enter your name"
+          >
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label for="prayer-request" class="block font-jost text-gray-700 font-medium mb-2">
+            Your Prayer Request
+          </label>
+          <textarea 
+            id="prayer-request" 
+            name="message" 
+            rows="6"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none 
+                   focus:ring-2 focus:ring-red-500 focus:border-transparent font-jost resize-none"
+            placeholder="Write your prayer request here..." 
+            required
+          ></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex justify-center md:justify-end">
+          <button 
+            type="submit"
+            class="px-8 py-3 bg-red-600 text-white font-jost font-semibold rounded-full 
+                   hover:bg-red-700 transition shadow-md"
+          >
+            Submit Request
+          </button>
+        </div>
+
+        <!-- Success / Error Message -->
+        <p id="form-status" class="text-center font-jost font-medium mt-4"></p>
+      </form>
     </div>
-
-    <h3 class="font-impact text-3xl md:text-4xl font-semibold leading-tight text-[#061c36] mb-6 text-center md:text-left">
-        We will Stand in Prayer with You
-    </h3>
-
-    <form 
-    id="prayer-form" 
-    action="https://formspree.io/f/xjknryok" 
-    method="POST" 
-    class="space-y-6"
-    >
-    <input type="hidden" name="_subject" value="New Prayer Request">
-
-    <div>
-        <label for="prayer-name" class="block font-jost text-gray-700 font-medium mb-2">
-        Full Name (optional)
-        </label>
-        <input 
-        type="text" 
-        id="prayer-name" 
-        name="name"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent font-jost"
-        placeholder="Enter your name"
-        >
-    </div>
-
-    <div>
-        <label for="prayer-request" class="block font-jost text-gray-700 font-medium mb-2">
-        Your Prayer Request
-        </label>
-        <textarea 
-        id="prayer-request" 
-        name="message" 
-        rows="6"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent font-jost resize-none"
-        placeholder="Write your prayer request here..." 
-        required
-        ></textarea>
-    </div>
-
-    <div class="flex justify-center md:justify-end">
-        <button 
-        type="submit"
-        class="px-8 py-3 bg-red-600 text-white font-jost font-semibold rounded-full hover:bg-red-700 transition shadow-md"
-        >
-        Submit Request
-        </button>
-    </div>
-
-    <!-- Success / Error messages -->
-    <p id="form-status" class="text-center font-jost font-medium mt-4"></p>
-    </form>
-    </div>
-
 
   </div>
 </section>
