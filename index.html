@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deeper Life Bible Church - Buffalo</title>
+    <link rel="icon" type="image/png" href="./Pics/logo.png">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Oswald:wght@200..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+
+    <link rel="stylesheet" href="dist/output.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+        }
+        .perspective {
+          perspective: 1000px;
+          -webkit-perspective: 1000px;
+        }
+        
+        .backface-hidden {
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+          transform-style: preserve-3d;
+          -webkit-transform-style: preserve-3d;
+        }
+        
+        .transform-style-preserve-3d {
+          transform-style: preserve-3d;
+          -webkit-transform-style: preserve-3d;
+        }
+        
+        .rotate-y-180 {
+          transform: rotateY(180deg);
+          -webkit-transform: rotateY(180deg);
+        }
+        
+        .perspective > div {
+          overflow: visible; /* prevents iOS ghost rendering */
+        }
+
+
+    </style>
+</head>
+
+<body class="font-body text-gray-900">
+
+    <!-- NAV + MENU WRAPPER -->
+<div x-data="{ open: false }" :class="{ 'overflow-hidden h-screen': open }">
+
+  <!-- NAVBAR -->
+  <nav class="bg-[#061c36] fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <!-- LEFT: LOGO -->
+      <a href="index.html" class="flex items-center space-x-3">
+        <img src="./Pics/logo.png" alt="DLBC Logo" class="h-10 w-10 object-contain">
+        <span class="text-2xl font-semibold text-white">Deeper Life Bible Church Buffalo NY</span>
+      </a>
+
+      <!-- DESKTOP NAV (lg+) -->
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="index.html"
+           class="font-jost text-lg text-white hover:text-red-300 transition">
+          Home
+        </a>
+
+        <a href="about.html"
+           class="font-jost text-lg text-white hover:text-red-300 transition">
+          About
+        </a>
+
+        <a href="https://dclm.org"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="font-jost text-lg bg-red-600 px-4 py-2 rounded-full text-white hover:bg-red-700 transition">
+          Global HQ
+        </a>
+      </div>
+
+      <!-- MOBILE HAMBURGER (sm/md only) -->
+      <button 
+        @click="open = !open"
+        class="relative flex flex-col justify-center items-center w-7 h-7 focus:outline-none lg:hidden">
+
+        <span 
+          class="absolute w-7 h-0.5 bg-white transition-all duration-300"
+          :class="open ? 'rotate-90 top-1/2 -translate-y-1/2' : 'top-1'">
+        </span>
+
+        <span 
+          class="absolute w-7 h-0.5 bg-white transition-all duration-300"
+          :class="open ? 'opacity-0' : 'top-1/2 -translate-y-1/2'">
+        </span>
+
+        <span 
+          class="absolute w-7 h-0.5 bg-white transition-all duration-300"
+          :class="open ? 'rotate-0 top-1/2 -translate-y-1/2' : 'bottom-1'">
+        </span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div 
+    x-show="open"
+    x-transition:enter="transition ease-out duration-500"
+    x-transition:enter-start="opacity-0 -translate-x-full"
+    x-transition:enter-end="opacity-100 translate-x-0"
+    x-transition:leave="transition ease-in duration-400"
+    x-transition:leave-start="opacity-100 translate-x-0"
+    x-transition:leave-end="opacity-0 -translate-x-full"
+    class="fixed inset-0 bg-[#061c36] z-40 flex flex-col items-start 
+           px-6 pt-28 space-y-6 lg:hidden">
+
+    <a href="index.html"
+       @click="open = false"
+       class="font-jost text-2xl tracking-wide text-white">
+      Home
+    </a>
+
+    <a href="about.html"
+       @click="open = false"
+       class="font-jost text-2xl tracking-wide text-white">
+      About
+    </a>
+
+    <a href="https://dclm.org"
+       @click="open = false"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="font-jost text-2xl tracking-wide text-white">
+      Global HQ
+    </a>
+
+  </div>
+
+</div>
+
+    <!-- HERO SECTION -->
+    <header class="relative h-screen flex flex-col items-center justify-center text-center px-6">
+
+        <!-- BACKGROUND IMAGE -->
+        <div 
+          class="absolute inset-0 bg-cover bg-center"
+          style="background-image: url('./Pics/worship1.jpg');">
+        </div>
+
+        <!-- DARK OVERLAY -->
+        <div class="absolute inset-0 bg-black/60"></div>
+
+        <!-- CONTENT -->
+        <div class="relative z-20 flex flex-col items-center -mt-20">
+
+            <!-- TOP HERO PILL -->
+            <div class="mb-2 px-4 py-1 bg-white/10 backdrop-blur-md rounded-full 
+                        text-sm md:text-base font-body tracking-wide text-white 
+                        flex items-center justify-center">
+                👋 Welcome to DLBC Buffalo
+            </div>
+
+            <h1 class="font-body text-4xl md:text-7xl tracking-wide text-white max-w-7xl font-semibold">
+                For where two or three are gathered together in my name, there am I in the midst of them.
+            </h1>
+
+            <p class="font-body mt-4 text-lg md:text-xl max-w-xl font-medium text-white">
+                - Matthew 18:20 (KJV)
+            </p>
+
+            <button class="mt-6 px-6 py-3 bg-red-600 text-white rounded-full font-jost tracking-wide hover:bg-red-700 transition">
+                Join Us This Sunday
+            </button>
+        </div>
+
+        <!-- SERVICE TIMES -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-white z-20">
+
+            <!-- PILL -->
+            <div class="mb-4 px-4 py-1 bg-white/10 backdrop-blur-md rounded-full 
+                        text-sm md:text-md font-body tracking-wide 
+                        flex items-center justify-center">
+                ⏱️ Service Times
+            </div>
+
+            <!-- TIMES -->
+            <div class="flex space-x-10">
+
+                <!-- SUNDAY -->
+                <div class="text-center">
+                    <div class="font-jost text-2xl md:text-4xl leading-tight">9:45AM</div>
+                    <div class="font-body text-sm md:text-base tracking-wide uppercase opacity-80">Sunday</div>
+                </div>
+
+                <!-- TUESDAY -->
+                <div class="text-center">
+                    <div class="font-jost text-2xl md:text-4xl leading-tight">6:00PM</div>
+                    <div class="font-body text-sm md:text-base tracking-wide uppercase opacity-80">Tuesday</div>
+                </div>
+
+                <!-- FRIDAY -->
+                <div class="text-center">
+                    <div class="font-jost text-2xl md:text-4xl leading-tight">6:00PM</div>
+                    <div class="font-body text-sm md:text-base tracking-wide uppercase opacity-80">Friday</div>
+                </div>
+
+            </div>
+
+            <!-- LOCATION LABEL PILL -->
+            <div class="mt-6 px-4 py-1 bg-white/10 backdrop-blur-md rounded-full 
+                        text-sm md:text-md font-body tracking-wide 
+                        flex items-center justify-center text-white">
+                📍 Location
+            </div>
+
+            <!-- ADDRESS TEXT -->
+            <a href="https://maps.app.goo.gl/2wt6MSs3wJhFbWwD6"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-2 font-jost text-2xl md:text-4xl text-white text-center">
+                4271 Genesee St, Cheektowaga, NY 14225
+            </a>
+            <!-- <p class="mt-2 font-jost text-2xl md:text-4xl text-white text-center">
+                
+            </p> -->
+
+        </div>
+
+    </header>
+
+    <!-- ABOUT / WELCOME SECTION -->
+    <section class="px-6 py-12 bg-white text-gray-900 reveal">
+
+        <div class="flex justify-center mb-4">
+        <div class="px-5 py-1 bg-gray-900/5 backdrop-blur-sm rounded-full 
+                        text-sm font-body tracking-wide text-gray-900 
+                        flex items-center justify-center">
+                👏 You are Welcome
+        </div>
+        </div>
+
+        <!-- TITLE -->
+        <h2 class="font-impact text-4xl md:text-5xl text-center tracking-wide mb-6 font-semibold">
+            WELCOME TO <br/>DLBC BUFFALO
+        </h2>
+
+        <!-- SHORT PARAGRAPH -->
+        <p class="font-jost text-xl md:text-2xl max-w-6xl text-center mx-auto leading-relaxed mb-12">
+            We are a family of believers saved by grace, committed to loving GOD, growing in
+            his likeness, and showing His love to everyone. Whether you are here for the first
+            time or returning home, you belong here.
+        </p>
+
+        <!-- OUR VALUES PILL -->
+        <div class="flex justify-center mb-8">
+        <div class="px-5 py-1 bg-gray-900/5 backdrop-blur-sm rounded-full 
+                    text-sm font-body tracking-wide text-gray-900 
+                    flex items-center justify-center">
+        ✨ What we believe
+        </div>
+        </div>
+
+        <!-- VALUES GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+            <!-- CARD 01 -->
+            <div x-data="{ flipped: false }" class="w-full perspective">
+            <div 
+                @click="flipped = !flipped"
+                class="relative h-64 transition-transform duration-700 transform-style-preserve-3d cursor-pointer"
+                :class="flipped ? 'rotate-y-180' : ''"
+            >
+
+                <!-- FRONT -->
+                <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
+                <div 
+                  class="absolute inset-0 bg-cover bg-center"
+                  style="background-image: url('./Pics/bible.jpg');">
+                </div>
+                <div class="absolute inset-0 bg-black/70"></div>
+                <div class="absolute inset-0 p-6 text-white flex flex-col justify-between z-10">
+                    <div class="text-7xl font-impact font-bold opacity-60">01</div>
+                    <h3 class="text-2xl font-jost font-semibold">The Holy Bible</h3>
+                    <span class="font-jost underline underline-offset-4 text-sm opacity-90">
+                    Read More
+                    </span>
+                </div>
+                </div>
+
+
+                <!-- BACK -->
+                <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden rotate-y-180 bg-black text-white p-6 flex flex-col justify-between">
+                <!-- <div class="text-2xl font-impact font-bold opacity-30">The Holy Bible</div> -->
+                <p class="font-jost leading-relaxed text-md">
+                    That the Holy Bible, consisting of 39 books of the Old Testament and 27 books of the New Testament, is the inspired Word of God. 
+                    We take the Bible as final authority in all matters concerning Christian conduct and work.
+                    <br><span class="italic block mt-2">2 Timothy 3:16,17; Proverbs 30:5,6; Revelation 22:18,19</span>
+                </p>
+                <span class="font-jost underline underline-offset-4 text-sm opacity-90">Close</span>
+                </div>
+            </div>
+            </div>
+
+            <!-- CARD 02 -->
+            <div x-data="{ flipped: false }" class="w-full perspective">
+            <div 
+                @click="flipped = !flipped"
+                class="relative h-64 transition-transform duration-700 transform-style-preserve-3d cursor-pointer"
+                :class="flipped ? 'rotate-y-180' : ''"
+            >
+
+                <!-- FRONT -->
+                <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
+                <div 
+                  class="absolute inset-0 bg-cover bg-center"
+                  style="background-image: url('./Pics/godhead.gif');">
+                </div>
+                <div class="absolute inset-0 bg-black/70"></div>
+                <div class="absolute inset-0 p-6 text-white flex flex-col justify-between z-10">
+                    <div class="text-7xl font-impact font-bold opacity-60">02</div>
+                    <h3 class="text-2xl font-jost font-semibold">The Godhead</h3>
+                    <span class="font-jost underline underline-offset-4 text-sm opacity-90">
+                    Read More
+                    </span>
+                </div>
+                </div>
+
+                <!-- BACK -->
+                <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden rotate-y-180 bg-black text-white p-6 flex flex-col justify-between">
+                <!-- <div class="text-2xl font-impact font-bold opacity-30">The Godhead</div> -->
+                <p class="font-jost leading-relaxed text-md">
+                    That the Godhead consists of three separate, distinct, and recognisable personalities and qualities, perfectly united in one. 
+                    The Father, the Son, and the Holy Ghost are different Persons in the Godhead, not merely three names for one Person.
+                    <br><span class="italic block mt-2">Matthew 3:16,17; 2 Corinthians 13:14; Matthew 28:19,20</span>
+                </p>
+                <span class="font-jost underline underline-offset-4 text-sm opacity-90">Close</span>
+                </div>
+            </div>
+            </div>
+
+            <!-- CARD 03 -->
+            <div x-data="{ flipped: false }" class="w-full perspective">
+            <div 
+                @click="flipped = !flipped"
+                class="relative h-64 transition-transform duration-700 transform-style-preserve-3d cursor-pointer"
+                :class="flipped ? 'rotate-y-180' : ''"
+            >
+
+                <!-- FRONT -->
+                <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
+                <div 
+                  class="absolute inset-0 bg-cover bg-center"
+                  style="background-image: url('./Pics/virgin.webp');">
+                </div>
+                <div class="absolute inset-0 bg-black/70"></div>
+                <div class="absolute inset-0 p-6 text-white flex flex-col justify-between z-10">
+                    <div class="text-7xl font-impact font-bold opacity-60">03</div>
+                    <h3 class="text-2xl font-jost font-semibold">The Virgin Birth of Jesus</h3>
+                    <span class="font-jost underline underline-offset-4 text-sm opacity-90">
+                    Read More
+                    </span>
+                </div>
+                </div>
+
+                <!-- BACK -->
+                <div class="absolute inset-0 rounded-xl overflow-hidden backface-hidden rotate-y-180 bg-black text-white p-6 flex flex-col justify-between">
+                <!-- <div class="text-2xl font-impact font-bold opacity-30">The Virgin Birth of Jesus</div> -->
+                <p class="font-jost leading-relaxed text-md">
+                    The virgin birth of Jesus, the only begotten Son of God as well as His crucifixion, death, burial and bodily resurrection.
+                    <br><span class="italic block mt-2">Isaiah 7:14; Matthew 1:18-25; Romans 1:4; I Corinthians 15:3,4</span>
+                </p>
+                <span class="font-jost underline underline-offset-4 text-sm opacity-90">Close</span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR PASTORS SECTION -->
+    <section class="px-6 py-12 bg-gradient-to-b from-gray-100 to-gray-50 text-gray-900 reveal">
+
+        <div class="flex justify-center mb-4">
+            <div class="mb-4 px-4 py-1 bg-gray-900/10 backdrop-blur-sm rounded-full 
+                        text-sm md:text-base font-body tracking-wide text-gray-900 
+                        flex items-center justify-center">
+                🙋 Meet Our Leaders
+            </div>
+        </div>
+
+        <!-- HORIZONTAL LAYOUT WITH CONNECTING LINE -->
+        <div class="max-w-7xl mx-auto relative">
+            
+            <!-- Connecting Line (hidden on mobile) -->
+            <div class="hidden lg:block absolute top-32 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+            
+            <div class="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-8 lg:gap-16">
+
+                <!-- PASTOR 1 -->
+                <div class="flex flex-col items-center lg:flex-1 max-w-xs">
+                    <div class="w-52 h-52 rounded-full overflow-hidden shadow-xl border-4 border-white relative z-10">
+                        <img src="./Pics/ojeme.jpg" alt="Coordinator" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-jost text-2xl font-semibold mt-6 text-center">
+                        Bro. Mudi Ojeme
+                    </h3>
+                    <p class="font-jost text-gray-600 text-sm uppercase tracking-wide text-center">
+                        Coordinator
+                    </p>
+                    <!-- <p class="font-jost text-gray-600 text-md uppercase tracking-wide text-center">
+                        1138 Millersport Highway, Buffalo NY, 14226
+                    </p> -->
+                </div>
+
+                <!-- PASTOR 2 -->
+                <div class="flex flex-col items-center lg:flex-1 max-w-xs">
+                    <div class="w-60 h-60 rounded-full overflow-hidden shadow-2xl border-4 border-white relative z-10">
+                        <img src="./Pics/kumuyi.jpg" alt="General Superintendent" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-jost text-2xl font-semibold mt-6 text-center">
+                        Pastor W. F. Kumuyi
+                    </h3>
+                    <p class="font-jost text-gray-600 text-sm uppercase tracking-wide text-center">
+                        General Superintendent
+                    </p>
+                </div>
+
+                <!-- PASTOR 3 -->
+                <div class="flex flex-col items-center lg:flex-1 max-w-xs">
+                    <div class="w-56 h-56 rounded-full overflow-hidden shadow-2xl border-4 border-white relative z-10">
+                        <img src="./Pics/bolaji.jpg" alt="Pastor-in-charge" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-jost text-2xl font-semibold mt-6 text-center">
+                        Pastor Bolaji Thomas
+                    </h3>
+                    <p class="font-jost text-gray-600 text-sm uppercase tracking-wide text-center">
+                        Pastor-in-charge
+                    </p>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- UPCOMING EVENTS SECTION -->
+    <!-- <section class="px-6 py-8 lg:py-16 bg-white text-gray-900 lg:mb-8 reveal">
+
+        <div class="flex justify-center mb-4">
+            <div class="mb-4 px-4 py-1 bg-gray-900/5 backdrop-blur-sm rounded-full 
+                        text-sm md:text-base font-body tracking-wide text-gray-900 
+                        flex items-center justify-center">
+                📋 Upcoming Events
+            </div>
+        </div> -->
+
+        <!-- EVENTS GRID -->
+        <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"> -->
+
+            <!-- EVENT 1 -->
+            <!-- <div class="bg-white rounded-xl p-6 border border-gray-200"> -->
+
+                <!-- TITLE -->
+                <!-- <h3 class="font-impact text-2xl font-semibold text-gray-900 mb-4 underline decoration-red-600 decoration-2">
+                    Night Vigil
+                </h3> -->
+
+                <!-- DETAILS -->
+                <!-- <p class="font-jost text-gray-700 leading-relaxed text-lg mb-3">
+                    Join us for a powerful night of prayer, worship, and spiritual renewal.
+                </p>
+
+                <p class="font-jost text-gray-700 text-lg">
+                    <strong>Date:</strong> 28th of November, 2025<br>
+                    <strong>Time:</strong> 11:00 PM<br>
+                    <strong>Venue:</strong> 3699 West Henrietta Road, Rochester NY, 14620
+                </p>
+
+            </div> -->
+
+            <!-- EVENT 2 -->
+            <!-- <div class="bg-white rounded-xl p-6 border border-gray-200"> -->
+
+                <!-- TITLE -->
+                <!-- <h3 class="font-impact text-2xl font-semibold text-gray-900 mb-4 underline decoration-red-600 decoration-2">
+                    Thanksgiving Service
+                </h3> -->
+
+                <!-- DETAILS -->
+                <!-- <p class="font-jost text-gray-700 leading-relaxed text-lg mb-3">
+                    A special service dedicated to gratitude, worship, and praising God 
+                    for His goodness throughout the year.
+                </p>
+
+                <p class="font-jost text-gray-700 text-lg">
+                    <strong>Date:</strong> 30th of November, 2025<br>
+                    <strong>Time:</strong> 9:45 AM<br>
+                    <strong>Venue:</strong> 3699 West Henrietta Road, Rochester NY, 14620
+                </p>
+            </div>
+        </div>
+    </section> -->
+
+<section class="bg-black pt-12 reveal">
+
+    <!-- RE-OCCURRING EVENTS -->
+    <div id="events" class="max-w-7xl mx-auto px-6 mb-16">
+
+        <div class="text-center mb-10">
+            <div class="flex justify-center">
+                <div class="mb-4 px-4 py-1 bg-gray-50 backdrop-blur-sm rounded-full 
+                            text-sm md:text-base font-body tracking-wide text-gray-900 
+                            flex items-center justify-center">
+                    📋 Re-occuring Events
+                </div>
+            </div>
+
+            <p class="text-white text-2xl lg:text-2xl font-jost">
+                Stay connected and be part of our regular gatherings and programs.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="rounded-xl overflow-hidden shadow-md border hover:shadow-lg transition">
+                <img src="./Pics/Upstate.svg" class="w-full h-auto object-cover">
+            </div>
+
+            <div class="rounded-xl overflow-hidden shadow-md border hover:shadow-lg transition">
+                <img src="./Pics/Vigil.svg" class="w-full h-auto object-cover">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SLIDER / WORSHIP HERO -->
+    <div 
+        x-data="{
+            slides: [
+                { img: './Pics/worship.jpg', text: 'We worship in spirit and truth.' },
+                { img: './Pics/worship2.jpg', text: 'We are a chosen generation.' },
+                { img: './Pics/worship3.jpg', text: 'We are called forth to show His excellence.' },
+                { img: './Pics/worship4.jpg', text: 'Holiness unto the Lord is our watchword and song.' }
+            ],
+            current: 0,
+            init() {
+                setInterval(() => {
+                    this.current = (this.current + 1) % this.slides.length;
+                }, 6000);
+            }
+        }"
+        class="relative w-full h-80 md:h-120 lg:h-[40rem] overflow-hidden"
+    >
+
+        <!-- IMAGE SLIDES -->
+        <template x-for="(slide, index) in slides" :key="'img-'+index">
+            <div 
+                class="absolute inset-0 transition-opacity duration-[1200ms]"
+                x-bind:style="`background-image: url('${slide.img}');
+                              background-size: cover;
+                              background-position: center;`"
+                x-bind:class="current === index ? 'opacity-100' : 'opacity-0'"
+            >
+                <div class="absolute inset-0 bg-black/60"></div>
+            </div>
+        </template>
+
+        <!-- TEXT SLIDES -->
+        <div class="absolute bottom-8 left-6 lg:bottom-16 lg:left-24 z-20 w-full max-w-xs md:max-w-3xl">
+            <div class="relative">
+                <template x-for="(slide, index) in slides" :key="'text-'+index">
+                    <h2 
+                        class="font-impact text-4xl md:text-5xl lg:text-7xl font-semibold text-white leading-tight
+                               transition-opacity duration-700 ease-in-out absolute bottom-0 left-0"
+                        x-bind:class="current === index ? 'opacity-100' : 'opacity-0'"
+                        x-text="slide.text"
+                    ></h2>
+                </template>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT & PRAYER REQUEST SECTION -->
+<section id="contact" class="bg-white text-gray-900 py-12 px-6 md:px-16 reveal">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+
+    <!-- LEFT: CONTACT DETAILS -->
+    <div class="space-y-6 md:text-left text-left md:pl-0">
+      <div class="flex justify-center md:justify-start">
+        <div class="px-5 py-1 bg-gray-900/10 rounded-full 
+                    text-sm font-body tracking-wide text-gray-900">
+          📞 Get in Touch
+        </div>
+      </div>
+
+  <h2 class="font-impact text-4xl md:text-5xl font-semibold leading-tight 
+             text-[#061c36] text-center md:!text-left md:self-start">
+    Contact Us
+  </h2>
+
+      <p class="font-jost text-lg opacity-90 leading-relaxed max-w-md md:mx-0 !text-left md:!text-left !mx-0">
+        We’d love to hear from you, whether you have a question about our services, 
+        upcoming events, or how to be part of our growing family. 
+        Reach out anytime, we will respond promptly and with love.
+      </p>
+
+      <!-- CONTACT DETAILS -->
+      <div class="font-jost text-lg opacity-90 space-y-2">
+        <a href="https://maps.app.goo.gl/2wt6MSs3wJhFbWwD6"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-jost text-xl opacity-90 leading-relaxed">
+            📍 4271 Genesee St, Cheektowaga, NY 14225
+        </a>
+        <p>📧 
+          <a href="mailto:dlbcbuffalo@gmail.com" class="text-[#061c36] hover:text-red-600 transition">
+            dlbcbuffalo@gmail.com
+          </a>
+        </p>
+        <p>📞 
+          <a href="tel:+15303838773" class="text-[#061c36] hover:text-red-600 transition">
+            (530) 383-8773
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT: PRAYER REQUEST FORM -->
+    <div class="bg-gray-50 rounded-2xl shadow-sm p-8 md:p-10">
+      <!-- Section Pill -->
+      <div class="flex justify-center md:justify-start mb-6">
+        <div class="px-5 py-1 bg-gray-900/10 rounded-full 
+                    text-sm font-body tracking-wide">
+          🙏 Share Your Prayer Request
+        </div>
+      </div>
+
+      <!-- Section Title -->
+      <h3 class="font-impact text-3xl md:text-4xl font-semibold leading-tight text-[#061c36] mb-6 text-center md:text-left">
+        We Will Stand in Prayer with You
+      </h3>
+
+      <!-- Prayer Form -->
+      <form 
+        id="prayer-form" 
+        action="https://formspree.io/f/xjknryok" 
+        method="POST" 
+        class="space-y-6"
+      >
+        <!-- Hidden Email Subject -->
+        <input type="hidden" name="_subject" value="New Prayer Request from DLBC Buffalo Website">
+
+        <!-- Name -->
+        <div>
+          <label for="prayer-name" class="block font-jost text-gray-700 font-medium mb-2">
+            Full Name (optional)
+          </label>
+          <input 
+            type="text" 
+            id="prayer-name" 
+            name="name"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none 
+                   focus:ring-2 focus:ring-red-500 focus:border-transparent font-jost"
+            placeholder="Enter your name"
+          >
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label for="prayer-request" class="block font-jost text-gray-700 font-medium mb-2">
+            Your Prayer Request
+          </label>
+          <textarea 
+            id="prayer-request" 
+            name="message" 
+            rows="6"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none 
+                   focus:ring-2 focus:ring-red-500 focus:border-transparent font-jost resize-none"
+            placeholder="Write your prayer request here..." 
+            required
+          ></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex justify-center md:justify-end">
+          <button 
+            type="submit"
+            class="px-8 py-3 bg-red-600 text-white font-jost font-semibold rounded-full 
+                   hover:bg-red-700 transition shadow-md"
+          >
+            Submit Request
+          </button>
+        </div>
+
+        <!-- Success / Error Message -->
+        <p id="form-status" class="text-center font-jost font-medium mt-4"></p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+
+<footer class="bg-[#061c36] text-gray-300 pt-8 pb-8">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 md:justify-items-center">
+
+    <div class="space-y-3 font-jost">
+      <a href="index.html" class="flex flex-col items-start space-y-3">
+        <div class="flex items-center justify-center md:justify-start space-x-3">
+          <img src="./Pics/logo.png" alt="DLBC Logo" class="h-10 w-10 object-contain">
+          <span class="block lg:hidden text-2xl font-semibold text-white text-center md:text-left font-body">
+            Deeper Life Bible Church Buffalo NY
+          </span>
+        <span class="hidden lg:block text-2xl font-semibold text-white text-center md:text-left font-body">
+            Deeper Life Bible Church<br> Buffalo NY
+          </span>
+        </div>
+
+        <p class="font-jost text-lg leading-relaxed opacity-90 max-w-md">
+          A Christ-centered family of believers not slothful in business, fervent in spirit, serving the Lord.
+          You belong here and we can't wait to meet you.
+        </p>
+      </a>
+
+      <div class="flex items-start space-x-3">
+        <p class="text-lg">
+          📍 4271 Genesee St, Cheektowaga, NY 14225
+        </p>
+      </div>
+
+      <div class="flex items-center space-x-3">
+        <p class="text-lg">📞 (580) 383-8773</p>
+      </div>
+
+      <div class="flex items-center space-x-3">
+        <p class="text-lg">📩 dlbcbuffalo@gmail.com</p>
+      </div>
+    </div>
+
+
+    <div class="font-jost">
+      <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
+      <ul class="space-y-2 text-lg">
+        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+        <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+        <li><a href="https://dclm.org/" class="hover:text-white transition" target="_blank" rel="noopener noreferrer">Global HQ</a></li>
+      </ul>
+    </div>
+
+    <div class="font-jost">
+      <h3 class="text-xl font-semibold text-white mb-4">Locations</h3>
+      <ul class="space-y-2 text-lg">
+        <li><a href="https://maps.app.goo.gl/DWS2Xr3d57TEEyFD9" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Rochester, NY</a></li>
+        <li><a href="https://maps.app.goo.gl/2wt6MSs3wJhFbWwD6" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Buffalo, NY</a></li>
+        <li><a href="https://maps.app.goo.gl/Loz4nztdJNNEJxbZA" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Potsdam, NY</a></li>
+      </ul>
+
+
+      <h3 class="text-xl font-semibold text-white mt-8 mb-4">Resources</h3>
+      <ul class="space-y-2 text-lg">
+        <li><a href="https://dailymanna.app/category/daily-manna/" class="hover:text-white transition" target="_blank" rel="noopener noreferrer">Daily Manna</a></li>
+        <li><a href="https://dailymanna.app/category/higher-everyday/" class="hover:text-white transition" target="_blank" rel="noopener noreferrer">Higher Everyday</a></li>
+        <li><a href="https://dailymanna.app/category/sincere-milk/" class="hover:text-white transition" target="_blank" rel="noopener noreferrer">Sincere Milk</a></li>
+      </ul>
+    </div>
+  </div> 
+
+  
+
+
+
+  <div class="border-t border-gray-600 mt-10 pt-6 text-center text-sm md:text-md lg:text-lg text-gray-400">
+    <p>© <span id="year"></span> Deeper Life Bible Church Rochester NY</p>
+    <p>All rights reserved</p>
+  </div>
+
+  <script>
+    // Auto-update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</footer>
+
+<!-- BACK TO TOP BUTTON -->
+<div 
+    x-data="{ show: false }"
+    x-init="
+        window.addEventListener('scroll', () => {
+            show = window.scrollY > 400;
+        })
+    "
+    x-show="show"
+    x-transition
+    class="fixed bottom-6 right-6 z-50"
+>
+    <button 
+        @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        class="w-12 h-12 flex items-center justify-center rounded-full 
+               bg-red-600 text-white shadow-lg hover:bg-red-700 
+               transition font-bold text-2xl"
+    >
+        ↑
+    </button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("reveal-active");
+                // Uncomment to animate only once:
+                // observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    reveals.forEach(el => observer.observe(el));
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("prayer-form");
+  const status = document.getElementById("form-status");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        status.textContent = "✅ Prayer request sent successfully!";
+        status.className = "text-green-600 text-center font-jost mt-4";
+        form.reset();
+
+        // Optional: fade out message after 5 seconds
+        setTimeout(() => { status.textContent = ""; }, 5000);
+
+      } else {
+        status.textContent = "❌ Oops! There was a problem submitting your request.";
+        status.className = "text-red-600 text-center font-jost mt-4";
+      }
+    } catch (error) {
+      status.textContent = "❌ Network error. Please try again later.";
+      status.className = "text-red-600 text-center font-jost mt-4";
+    }
+  });
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

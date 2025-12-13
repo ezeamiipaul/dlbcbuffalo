@@ -1,0 +1,12 @@
+{
+  "name": "church-website",
+  "version": "1.0.0",
+  "description": "Church website using Tailwind CSS",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i ./src/styles.css -o ./dist/output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}

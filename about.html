@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="./Pics/logo.png" class="h-4 w-4" />
+  <title>About Deeper Life Bible Church</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="dist/output.css">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Oswald:wght@200..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+</head>
+
+<body class="font-body text-gray-900">
+    <!-- NAV + MENU WRAPPER -->
+<div x-data="{ open: false }" :class="{ 'overflow-hidden h-screen': open }">
+
+  <!-- NAVBAR -->
+  <nav class="bg-[#061c36] fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <!-- LEFT: LOGO -->
+      <a href="index.html" class="flex items-center space-x-3">
+        <img src="/Pics/logo.png" alt="DLBC Logo" class="h-10 w-10 object-contain">
+        <span class="text-2xl font-semibold text-white">Deeper Life Bible Church Buffalo NY</span>
+      </a>
+
+      <!-- DESKTOP NAV (lg+) -->
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="index.html"
+           class="font-jost text-lg text-white hover:text-red-300 transition">
+          Home
+        </a>
+
+        <a href="about.html"
+           class="font-jost text-lg text-white hover:text-red-300 transition">
+          About
+        </a>
+
+        <a href="https://dclm.org"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="font-jost text-lg bg-red-600 px-4 py-2 rounded-md text-white hover:bg-red-700 transition">
+          Global HQ
+        </a>
+      </div>
+
+      <!-- MOBILE HAMBURGER (sm/md only) -->
+      <button 
+        @click="open = !open"
+        class="relative flex flex-col justify-center items-center w-7 h-7 focus:outline-none lg:hidden">
+
+        <span 
+          class="absolute w-7 h-0.5 bg-white transition-all duration-300"
+          :class="open ? 'rotate-90 top-1/2 -translate-y-1/2' : 'top-1'">
+        </span>
+
+        <span 
+          class="absolute w-7 h-0.5 bg-white transition-all duration-300"
+          :class="open ? 'opacity-0' : 'top-1/2 -translate-y-1/2'">
+        </span>
+
+        <span 
+          class="absolute w-7 h-0.5 bg-white transition-all duration-300"
+          :class="open ? 'rotate-0 top-1/2 -translate-y-1/2' : 'bottom-1'">
+        </span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div 
+    x-show="open"
+    x-transition:enter="transition ease-out duration-500"
+    x-transition:enter-start="opacity-0 -translate-x-full"
+    x-transition:enter-end="opacity-100 translate-x-0"
+    x-transition:leave="transition ease-in duration-400"
+    x-transition:leave-start="opacity-100 translate-x-0"
+    x-transition:leave-end="opacity-0 -translate-x-full"
+    class="fixed inset-0 bg-[#061c36] z-40 flex flex-col items-start 
+           px-6 pt-28 space-y-6 lg:hidden">
+
+    <a href="index.html"
+       @click="open = false"
+       class="font-jost text-2xl tracking-wide text-white">
+      Home
+    </a>
+
+    <a href="about.html"
+       @click="open = false"
+       class="font-jost text-2xl tracking-wide text-white">
+      About
+    </a>
+
+    <a href="https://dclm.org"
+       @click="open = false"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="font-jost text-2xl tracking-wide text-white">
+      Global HQ
+    </a>
+
+  </div>
+
+</div>
+
+
+<section class="relative w-full h-screen overflow-hidden lg:mt-16">
+  <img src="./Pics/dclm-banner.jpg" 
+    alt="DCLM Banner" 
+    class="absolute inset-0 w-full h-full object-cover">
+
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <div class="absolute inset-0 flex items-center justify-center text-center">
+    <h1 class="script-font text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white px-6">
+      About Deeper Christian Life Ministry
+    </h1>
+  </div>
+</section>
+
+<section class="bg-white py-12">
+  <div class="max-w-7xl mx-auto px-6 text-xl md:text-2xl text-gray-700 leading-relaxed space-y-6 text-justify">
+    
+    <p class="font-body">
+      Journalist Alan Isaacson provides a helpful study of this phenomenal ministry in his book 
+      <em>“Deeper Life: The Extraordinary Growth of the Deeper Life Bible Church”</em>, after talking 
+      with many members of the church who told him how Christ has miraculously intervened and changed 
+      lives in response to prayer and the proclamation of the Gospel. In Pastor Kumuyi’s own words: 
+      “God, in the growth of Deeper Life Bible Church, has strategically and prudently used miracles 
+      to ‘make all men come to Him’ (John 3:26). We take Christian living and holiness seriously.”
+    </p>
+
+    <p class="font-body">
+      According to Isaacson, the history of Deeper Life is very much the personal story of 
+      W.F. Kumuyi. He is a gifted man, clear-thinking and humble. He is a dedicated Christian 
+      and deserves the title ‘the man of God,’ which his followers have given him. Since he was 
+      a young man, Kumuyi has devoted his time to reading and studying the Bible. He knows the 
+      Scriptures inside out, and has struggled to understand and apply them. As he shares that 
+      struggle and his love for the word of God, so people have been drawn to him for advice, 
+      or simply to listen. When he preaches, his message is clear, simple, and profound. Poor 
+      street traders who can barely read sit next to university professors, all equally captivated 
+      by the way Scripture becomes suddenly relevant to them.
+    </p>
+
+    <p class="font-body">
+      Pastor Kumuyi’s own Christian life developed because he took the Bible so seriously, and so 
+      the Deeper Christian Life Ministry has developed in the same way. In Alan Isaacson’s own words, 
+      he “preached Deeper Life into existence”. His sermons were captivating, wrote Isaacson, “I would 
+      classify him as one of the greatest living preachers, giving a straightforward Bible-based message, 
+      his sermons thorough, and always personally challenging. He always gave a wide range of cross-references 
+      which were read in their context, supporting, clarifying and expanding his main points. He spoke clearly 
+      and authoritatively to the Nigerian situation. He dealt sensitively with African culture, but also made 
+      a firm stand in highlighting the points where local culture was incompatible with the will of God. While 
+      stressing the high moral tone which is one of the virtues of most African cultures at their best, he was 
+      at pains to specify those aspects of local culture which were unchristian and even evil. In this way he 
+      was not only concerned with some kind of personal holiness, but also genuinely seeking the wholeness and 
+      harmony of the community at large, where truth, honesty, and justice should be the predominant characteristics.”
+    </p>
+
+  </div>
+</section>
+
+<section id="beliefs" class="bg-gray-50 py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-impact font-bold text-center text-black-800 mb-8">What We Believe</h2>
+
+    <div class="text-gray-700 leading-relaxed text-center mb-10">
+      <p class="font-body text-lg mb-4">
+        <strong class="text-2xl">BIBLE DOCTRINES: ABRIDGED EDITION</strong><br>
+        Acts 2:42; I Timothy 4:16; Titus 1:9
+      </p>
+      <p class="text-xl mb-4">
+        “Beloved, when I gave all diligence to write unto you of the common salvation, it was needful for me to write unto you,
+        and exhort [you] that ye should earnestly contend for the faith which was once delivered unto the saints.” (Jude 3)
+      </p>
+    </div>
+    <div class="text-gray-700 leading-relaxed mb-4">
+      <p class="text-xl">
+        God’s infallible WORD teaches and we believe:
+      </p>
+    </div>
+
+    <div x-data="{ openItem: null }" class="space-y-4 font-jost">
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 1 ? openItem = null : openItem = 1"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>The Holy Bible</span>
+          <svg :class="{ 'rotate-180': openItem === 1 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 1" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That the Holy Bible, consisting of 39 books of the Old Testament and 27 books of the New Testament, 
+          is the inspired Word of God. We take the Bible as final authority in all matters concerning Christian conduct and work. 
+          <br><span class="text-md italic">(2 Timothy 3:16,17; Proverbs 30:5,6; Revelation 22:18,19.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 2 ? openItem = null : openItem = 2"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>The Godhead</span>
+          <svg :class="{ 'rotate-180': openItem === 2 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 2" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That the Godhead consists of three separate, distinct, and recognisable personalities and qualities, perfectly united in one.
+          The Father, the Son, and the Holy Ghost are different Persons in the Godhead, not merely three names for one Person.
+          <br><span class="text-md italic">(Matthew 3:16,17; 2 Corinthians 13:14; Matthew 28:19,20.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 3 ? openItem = null : openItem = 3"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>The Virgin Birth of Jesus</span>
+          <svg :class="{ 'rotate-180': openItem === 3 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 3" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          The virgin birth of Jesus, the only begotten Son of God as well as His crucifixion, death, burial and bodily resurrection.
+          <br><span class="text-md italic">(Isaiah 7:14; Matthew 1:18-25; Romans 1:4; I Corinthians 15:3,4.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 4 ? openItem = null : openItem = 4"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>Total Depravity, Sinfulness and Guilt of All Men</span>
+          <svg :class="{ 'rotate-180': openItem === 4 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 4" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          The total depravity, sinfulness and guilt of all men since the Fall, rendering them subject to God’s wrath and condemnation.
+          <br><span class="text-md italic">(Psalm 51:5; Job 14:4; Romans 3:23; 5:12-17; Mark 7:21-23; Ephesians 2:1.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 5 ? openItem = null : openItem = 5"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>Repentance</span>
+          <svg :class="{ 'rotate-180': openItem === 5 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 5" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That Repentance is a complete turning away from all sins and its deceitful pleasures and that it is required from every sinner 
+          before he can truly and effectively believe in Jesus with saving faith.
+          <br><span class="text-md italic">(Proverbs 28:13; Isaiah 55:7; Ezekiel 18:21-23; Mark 1:15; Luke 24:46,47; Acts 2:38; 3:19; 20:20,21; 2 Corinthians 7:10; Hebrews 6:1-3.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 6 ? openItem = null : openItem = 6"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>Restitution</span>
+          <svg :class="{ 'rotate-180': openItem === 6 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 6" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That Restitution is making amends for wrongs done against our fellow-men, restoring stolen things to their rightful owners,
+          paying debts, giving back where one has defrauded, making confessions to the offended and apologizing to those slandered so
+          as to have a conscience void of offence toward God and man.
+          <br><span class="text-md italic">(Isaiah 7:14; Matthew 1:18-25; Romans 1:4; I Corinthians 15:3,4.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 7 ? openItem = null : openItem = 7"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>Justification</span>
+          <svg :class="{ 'rotate-180': openItem === 7 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 7" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That Justification is God’s grace through which one receives forgiveness and remission of sins and is counted righteous before
+          God, through faith in the atoning blood of Jesus. Having thus been cleared of every guilt of sin, the regenerated stands before
+          God as though he had never sinned, not on the basis of any personal merit but in the light of what Christ had accomplished for
+          mankind by His substitutionary death on the cross at Calvary.
+          <br><span class="text-md italic">(Psalm 32:1,2; Isaiah 1:18; Micah 7:19; Acts 13:38.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 8 ? openItem = null : openItem = 8"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>Water Baptism</span>
+          <svg :class="{ 'rotate-180': openItem === 8 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 8" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          TThat water Baptism is essential to our obedience after reconciliation with God. Water Baptism is one immersion (not three)
+          “In the name of the Father, and of the Son, and of the Holy Ghost”, as Jesus commanded.
+          <br><span class="text-md italic">(Matthew 28:19; 3:13-17; Mark 16:15,16; Acts 2:38;8:38,39; 19:1-5; Romans 6:4,5.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 9 ? openItem = null : openItem = 9"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>The Lord’s Supper</span>
+          <svg :class="{ 'rotate-180': openItem === 9 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 9" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That the Lord’s supper was instituted by Jesus Christ so that all believers (all members of the family of God) might partake
+          thereof regularly, to “shew the Lord’s death till he come”. The emblems used are “unleavened bread” and the juice of “fruit of
+          the vine”. Anyone who eats and drinks unworthily brings “damnation”, punishment and chastisement upon himself.
+          <br><span class="text-md italic">(Matthew 26:29; Luke 22:17-20; I Corinthians 11:23-30.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 10 ? openItem = null : openItem = 10"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>Entire Sanctification</span>
+          <svg :class="{ 'rotate-180': openItem === 10 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 10" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That Entire Sanctification is a definite act of God’s grace, subsequent to the New Birth, by which the believer’s heart is
+          purified and made holy. It cannot be attained progressively by works, struggle or suppression, but it is obtained by faith in
+          the sanctifying blood of Jesus Christ. Holiness of life and purity of heart are central to Christian living.
+          <br><span class="text-md italic">(Luke 1:74,75; John 17:15-17; I Thessalonians 4:3,7,8; 5:22-24; Ephesians 5:25-27; 
+            Hebrews 2:11; 10:10,14; 13:11,12; Titus 2:11-14; I John 1:7; Hebrews 12:14; I Peter 1:14-16.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 11 ? openItem = null : openItem = 11"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>Holy Ghost Baptism</span>
+          <svg :class="{ 'rotate-180': openItem === 11 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 11" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That the Baptism in the Holy Ghost is the enduement of power from on High upon the sanctified believer. It is “the promise of
+          the Father” and when one receives this “gift of the Holy Ghost”, it is accompanied by the initial evidence of speaking a 
+          language unlearned previously, referred to as speaking in tongues as the Spirit gives utterance. We do not teach or instruct 
+          people how to speak in tongues: the Holy Spirit gives utterance. We also stress the necessity of purity before power. 
+          The Gifts of the Spirit are for believers today.
+          <br><span class="text-md italic">(Matthew 3:11; Acts 1:8; Luke 3:16; 24:49; John 1:30-33; 7:37-39; 14:16,17,26; 15:26; 
+            16:12-15; Acts 1:5-8; Mark 16:17; Acts 2:1-18; 10:44-46; Acts 19:1-6; I Corinthians 12:1-31; 14:1-40.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 12 ? openItem = null : openItem = 12"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>Redemption, Healing and Health</span>
+          <svg :class="{ 'rotate-180': openItem === 12 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 12" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That Redemption from the curse of the law, Healing of sickness and disease as well as continued Health are provided for all 
+          people through the sacrificial death of Jesus Christ.
+          <br><span class="text-md italic">(Exodus 15:26; Deuteronomy 7:15; Psalm 103:1-5; Proverbs 4:20-22; Isaiah 53:4,5; 
+            Matthew 8:16,17; I Peter 2:24; Mark 16;15-18; Luke 13:16; John 14:12-14; 10:10; Acts 10:38; James 5:14-16; 3 John 2 
+            Galatians 3:13,14.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 13 ? openItem = null : openItem = 13"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>Personal Evangelism</span>
+          <svg :class="{ 'rotate-180': openItem === 13 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 13" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That Personal Evangelism is a God-given and God-ordained ministry for every believer. Jesus commanded and God 
+          requires every believer to be a compassionate and fruitful soulwinner, bringing others to Christ.
+          <br><span class="text-md italic">(Matthew 28:19,20; Mark 16:15; Luke 24:46-49; John 17:18; Acts 1:8; 1-4; 
+            Psalm 126:5,6; Proverbs 11:30; Daniel 12:3; Ezekiel 3:17-21.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 14 ? openItem = null : openItem = 14"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>Marriage</span>
+          <svg :class="{ 'rotate-180': openItem === 14 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 14" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That Marriage is binding for life. Monogamy is the uniform teaching of the Bible. Polygamy is contrary to God’s perfect 
+          will and institution. Also, under the New Testament dispensation, no one has a right to divorce and remarry while the first 
+          companion lives. When a person becomes converted, necessary restitution, on this line, must be done without delay if he has 
+          married wrongly.
+          <br><span class="text-md italic">(Genesis 2:24; Deuteronomy 7:1-4; Job 23:11-13; 2 Corinthians 6:14-18; Proverbs 31:10-31; 
+            Malachi 2:14,15; Romans 7:2,3; Ephesians 5:31-33; Matthew 5;31,32; 19:3-9; Mark 10:2-12; Luke 16:18; John 4:15-19; 
+            Genesis 20:3-7.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 15 ? openItem = null : openItem = 15"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>The Rapture</span>
+          <svg :class="{ 'rotate-180': openItem === 15 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 15" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That the Rapture (commonly referred to as the first phase or stage of the SECOND COMING OF CHRIST) is the catching away from 
+          the earth, of all living saints and all who died in the Lord. The Rapture will take place before the Great Tribulation and can 
+          happen any time from now. “In a twinkling of an eye” without a moment’s warning, “the trumpet shall sound” “and the dead in 
+          Christ shall rise first; then we which are alive and remain shall be caught up together with them in the clouds, to meet the 
+          Lord in the air: and so shall we ever be with the Lord.”
+          <br><span class="text-md italic">(John 14:1-3; Luke 21:34-36; I Corinthians 15:51-58; I Thessalonians 4:13-18; 5:4-9; 
+            2 Thessalonians 2:5-7; Philippians 3:11,20,21; I John 3:1-3.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 16 ? openItem = null : openItem = 16"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>The Resurrection of The Dead</span>
+          <svg :class="{ 'rotate-180': openItem === 16 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 16" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That the Resurrection of the dead is taught in the Bible as clearly as the immortality of the soul. Every individual who has 
+          ever lived will be resurrected, some to honour and glory and others to everlasting shame and contempt.
+          <br><span class="text-md italic">(Job 19:25-27; Psalm 71:20; Isaiah 26:19; Daniel 12:2; John 5:28,29; I Corinthians 15:12-57; 
+            I Thessalonians 4:13-16; Hebrews 6:1,2; Philippians 3:8-11; Revelation 20:4,6,12,13.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 17 ? openItem = null : openItem = 17"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>The Great Tribulation</span>
+          <svg :class="{ 'rotate-180': openItem === 17 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 17" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That the Great Tribulation will occur after the Rapture and will be a time of terrible suffering on earth. It is also referred 
+          to as the time of “Jacob’s trouble”. During this time, the Antichrist will take possession of this world for a reign of terror. 
+          He will not be a system or organization but a person – a supernatural, diabolical being, in the form of a man who will blaspheme 
+          and proclaim himself to be God. The Marriage Supper of the Lamb will take place above while the Tribulation continues on earth.
+          <br><span class="text-md italic">(Matthew 24:21,22,29; Revelation 9:16; Mark 13:19; 2 Thessalonians 2:3-12; Revelation 13. 
+            Daniel 8:23-25; 2 Thessalonians 2:7-12; Revelation 13:1-10. Revelation 19:1-10.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 18 ? openItem = null : openItem = 18"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>The Second Coming of Christ</span>
+          <svg :class="{ 'rotate-180': openItem === 18 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 18" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That the Second Coming of Christ will be just as literal and visible as His going away, and He is coming to execute judgement 
+          upon the ungodly. He will also, then, set up His Kingdom and reign on this present earth for a thousand years.
+          <br><span class="text-md italic">(Zechariah 14:3,4; Matthew 25:31-46; 26:64; Mark 13:24-37; 2 Thessalonians 1:7-10; 2:8; 
+            Jude 14,15.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 19 ? openItem = null : openItem = 19"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>Christ’s Millennial Reign</span>
+          <svg :class="{ 'rotate-180': openItem === 19 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 19" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That Christ’s Millennial Reign is the 1,000 years literal reign of Jesus on earth, which will be ushered in by the coming of 
+          Jesus back to earth with ten thousands of His saints. At this time He will judge the nations that dwell upon the face of the 
+          earth. During this time, the devil will be bound. It will be a reign of peace and blessing.
+          <br><span class="text-md italic">(Jude 14,15; 2 Thessalonians 1:7-10. Revelation 20:2,3. Isaiah 11:6-9; 65:25; Hosea 2:18; 
+            Zechariah 14:9-20; Isaiah 2:2-4.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 20 ? openItem = null : openItem = 20"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>The Great White Throne Judgement</span>
+          <svg :class="{ 'rotate-180': openItem === 20 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 20" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That the Great White Throne Judgement is when God finally judges all (the living and the dead, small and great) who have ever 
+          lived on the face of the earth, according to their works. This is after the Millennium. At this time, the final Judgement known 
+          as the Great White Throne Judgement will be held. All those, from all ages, who have not yet been judged (believers’ judgement 
+          for sin, borne and accomplished by Christ on the Crossp) will stand before God at this time. The devil and his angels are judged 
+          at this time also and sent to the lake of fire forever.
+          <br><span class="text-md italic">(John 5:24; 3:17-19. Daniel 12:2,3; Matthew 10:15; 11:21-24,12:41,42; John 5:28,29; 
+            Romans 2:15,16; 14:12; 2 Peter 2:9; Jude 6; I Corinthians 6:1-4; Acts 10:42; Revelation 20:11-15.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 21 ? openItem = null : openItem = 21"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>The New Heaven and The New Earth</span>
+          <svg :class="{ 'rotate-180': openItem === 21 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 21" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That the New Heaven and the New Earth “wherein dwelleth righteousness” will be made by God and the redeemed shall dwell therein 
+          with God forever. This present earth which has been polluted by sin will pass away after the Great White Throne Judgement. 
+          No unclean thing will be there. There, we shall know each other, our knowledge having been perfected. There will be no more 
+          curse upon anything. There will be no more night; the glory of the Lord will be the light thereof.
+          <br><span class="text-md italic">(Psalm 102:25,26; Isaiah 51:6; 65:17; Matthew 5:18; 24:35; 2 Peter 3:10-13; Revelation 21;
+            Isaiah 66:22; 2 Peter 3:12,13; I Corinthians 13:12; I John 3:2,3; Revelation 21:1-7; 22:1-5.)</span>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-lg overflow-hidden">
+        <button 
+          @click="openItem === 22 ? openItem = null : openItem = 22"
+          class="w-full flex justify-between items-center bg-white px-5 py-4 text-left font-semibold text-gray-800 hover:bg-blue-50">
+          <span>Hell</span>
+          <svg :class="{ 'rotate-180': openItem === 22 }" class="h-5 w-5 text-gray-600 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div x-show="openItem === 22" x-collapse class="bg-gray-50 px-5 py-4 text-gray-700 text-justify leading-relaxed">
+          That Hell fire is a place of everlasting punishment where sinners (all who do not have their names in the book of life) 
+          will suffer torments for ever and ever. It was prepared for the devil and his angels (Matthew 25:41) but God has decreed that 
+          the wicked and those who forget Him and reject Christ will also be cast there because of their sin and neglect of His salvation.
+          <br><span class="text-md italic">(Psalm 9:17; Matthew 25:46; Luke 12:4,5; 16:19-31; Matthew 5:22,30; Mark 9:43-47; 
+            Revelation 14:10,11; 20:10,12,15.)</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="bg-[#061c36] text-gray-300 pt-8 pb-8">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 md:justify-items-center">
+
+    <div class="space-y-3 font-jost">
+      <a href="index.html" class="flex flex-col items-start space-y-3">
+        <div class="flex items-center justify-center md:justify-start space-x-3">
+          <img src="./Pics/logo.png" alt="DLBC Logo" class="h-10 w-10 object-contain">
+          <span class="text-2xl font-semibold text-white text-center md:text-left font-body">
+            Deeper Life Bible Church Buffalo NY
+          </span>
+        </div>
+
+        <p class="font-jost text-lg leading-relaxed opacity-90 max-w-md">
+          A Christ-centered family of believers not slothful in business, fervent in spirit, serving the Lord.
+          You belong here and we can't wait to meet you.
+        </p>
+      </a>
+
+      <div class="flex items-start space-x-3">
+        <p class="text-lg">
+          📍 4271 Genesee St, Cheektowaga, NY 14225
+        </p>
+      </div>
+
+      <div class="flex items-center space-x-3">
+        <p class="text-lg">📞 (580) 383-8773</p>
+      </div>
+
+      <div class="flex items-center space-x-3">
+        <p class="text-lg">📩 dlbcbuffalo@gmail.com</p>
+      </div>
+    </div>
+
+
+    <div class="font-jost">
+      <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
+      <ul class="space-y-2 text-lg">
+        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+        <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+        <li><a href="https://dclm.org/" class="hover:text-white transition" target="_blank" rel="noopener noreferrer">Global HQ</a></li>
+      </ul>
+    </div>
+
+    <div class="font-jost">
+      <h3 class="text-xl font-semibold text-white mb-4">Locations</h3>
+      <ul class="space-y-2 text-lg">
+        <li><a href="https://maps.app.goo.gl/DWS2Xr3d57TEEyFD9" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Rochester, NY</a></li>
+        <li><a href="https://maps.app.goo.gl/2wt6MSs3wJhFbWwD6" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Buffalo, NY</a></li>
+        <li><a href="https://maps.app.goo.gl/Loz4nztdJNNEJxbZA" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Potsdam, NY</a></li>
+      </ul>
+
+
+      <h3 class="text-xl font-semibold text-white mt-8 mb-4">Resources</h3>
+      <ul class="space-y-2 text-lg">
+        <li><a href="https://dailymanna.app/category/daily-manna/" class="hover:text-white transition" target="_blank" rel="noopener noreferrer">Daily Manna</a></li>
+        <li><a href="https://dailymanna.app/category/higher-everyday/" class="hover:text-white transition" target="_blank" rel="noopener noreferrer">Higher Everyday</a></li>
+        <li><a href="https://dailymanna.app/category/sincere-milk/" class="hover:text-white transition" target="_blank" rel="noopener noreferrer">Sincere Milk</a></li>
+      </ul>
+    </div>
+  </div> 
+
+  
+
+
+
+  <div class="border-t border-gray-600 mt-10 pt-6 text-center text-sm md:text-md lg:text-lg text-gray-400">
+    <p>© <span id="year"></span> Deeper Life Bible Church Rochester NY</p>
+    <p>All rights reserved</p>
+  </div>
+
+  <script>
+    // Auto-update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</footer>
+
+</body>
+</html>
