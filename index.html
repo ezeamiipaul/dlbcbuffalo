@@ -136,8 +136,8 @@
      are guaranteed to already be compiled in. If you introduce a brand
      new color or spacing value later, you must rebuild dist/output.css
      or it will silently fail to appear. -->
-<div x-data="{ showAnnouncement: false }" x-init="showAnnouncement = true" x-show="showAnnouncement" x-transition class="pt-16 md:pt-20">
-  <div class="bg-amber-400 text-[#061c36]">
+<div x-data="{ showAnnouncement: false }" x-init="showAnnouncement = true" x-show="showAnnouncement" x-transition class="bg-amber-400 pt-20 md:pt-[72px]">
+  <div class="text-[#061c36]">
     <div class="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-between gap-4">
       <p class="font-jost text-sm md:text-base font-medium truncate">
         🏡 New: Home Caring Fellowship — Sundays 6–7pm EST
@@ -153,6 +153,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- HERO SECTION -->
     <header class="relative min-h-screen py-28 md:py-24 flex flex-col items-center justify-center text-center px-6">
