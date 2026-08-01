@@ -46,6 +46,9 @@
     .perspective > div {
         overflow: visible; /* prevents iOS ghost rendering */
     }
+    [x-cloak] {
+        display: none !important;
+    }
     </style>
 
     <link rel="stylesheet" href="dist/output.css">
@@ -106,6 +109,7 @@
   <!-- MOBILE MENU OVERLAY -->
   <div 
     x-show="open"
+    x-cloak
     x-transition:enter="transition ease-out duration-500"
     x-transition:enter-start="opacity-0 -translate-x-full"
     x-transition:enter-end="opacity-100 translate-x-0"
@@ -123,10 +127,17 @@
 </div>
 
 <!-- ANNOUNCEMENT BANNER — inline, not fixed. Sits at the top of the page
-     content and scrolls away naturally. pt-[72px] offsets the fixed nav
-     above it; adjust if nav height changes. -->
-<div x-data="{ showAnnouncement: true }" x-show="showAnnouncement" x-transition class="pt-[72px]">
-  <div class="bg-[#D4A017] text-[#061c36]">
+     content and scrolls away naturally.
+     NOTE: this site's CSS is a compiled Tailwind build (dist/output.css),
+     not the CDN version — any class name not already used somewhere else
+     in this file (including arbitrary values like bg-[#hex] or pt-[72px])
+     will NOT render until you rebuild that CSS file. The classes below
+     were chosen because they already appear elsewhere in this file and
+     are guaranteed to already be compiled in. If you introduce a brand
+     new color or spacing value later, you must rebuild dist/output.css
+     or it will silently fail to appear. -->
+<div x-data="{ showAnnouncement: false }" x-init="showAnnouncement = true" x-show="showAnnouncement" x-transition class="pt-16 md:pt-20">
+  <div class="bg-amber-400 text-[#061c36]">
     <div class="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-between gap-4">
       <p class="font-jost text-sm md:text-base font-medium truncate">
         🏡 New: Home Caring Fellowship — Sundays 6–7pm EST
@@ -144,7 +155,7 @@
 </div>
 
 <!-- HERO SECTION -->
-    <header class="relative h-screen pt-36 md:pt-32 flex flex-col items-center justify-center text-center px-6">
+    <header class="relative min-h-screen py-28 md:py-24 flex flex-col items-center justify-center text-center px-6">
 
 
         <!-- BACKGROUND IMAGE -->
@@ -157,7 +168,7 @@
         <div class="absolute inset-0 bg-black/60"></div>
 
         <!-- CONTENT -->
-        <div class="relative z-20 flex flex-col items-center -mt-20">
+        <div class="relative z-20 flex flex-col items-center">
 
             <!-- TOP HERO PILL -->
             <div class="mb-2 px-4 py-1 bg-white/10 backdrop-blur-md rounded-full 
@@ -166,7 +177,7 @@
                 👋 Welcome to DLBC Buffalo
             </div>
 
-            <h1 class="font-body text-4xl md:text-7xl tracking-wide text-white max-w-7xl font-semibold">
+            <h1 class="font-body text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wide text-white max-w-5xl lg:max-w-7xl font-semibold">
                 For where two or three are gathered together in my name, there am I in the midst of them.
             </h1>
 
@@ -180,7 +191,7 @@
         </div>
 
         <!-- SERVICE TIMES -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-white z-20">
+        <div class="relative z-20 mt-12 md:mt-16 flex flex-col items-center text-white">
 
             <!-- PILL -->
             <div class="mb-4 px-4 py-1 bg-white/10 backdrop-blur-md rounded-full 
@@ -190,23 +201,23 @@
             </div>
 
             <!-- TIMES -->
-            <div class="flex space-x-10">
+            <div class="flex flex-wrap justify-center gap-x-10 gap-y-4">
 
                 <!-- SUNDAY -->
                 <div class="text-center">
-                    <div class="font-jost text-2xl md:text-4xl leading-tight">9:45AM</div>
+                    <div class="font-jost text-2xl md:text-3xl lg:text-4xl leading-tight">9:45AM</div>
                     <div class="font-body text-sm md:text-base tracking-wide uppercase opacity-80">Sunday</div>
                 </div>
 
                 <!-- TUESDAY -->
                 <div class="text-center">
-                    <div class="font-jost text-2xl md:text-4xl leading-tight">6:00PM</div>
+                    <div class="font-jost text-2xl md:text-3xl lg:text-4xl leading-tight">6:00PM</div>
                     <div class="font-body text-sm md:text-base tracking-wide uppercase opacity-80">Tuesday</div>
                 </div>
 
                 <!-- FRIDAY -->
                 <div class="text-center">
-                    <div class="font-jost text-2xl md:text-4xl leading-tight">6:00PM</div>
+                    <div class="font-jost text-2xl md:text-3xl lg:text-4xl leading-tight">6:00PM</div>
                     <div class="font-body text-sm md:text-base tracking-wide uppercase opacity-80">Friday</div>
                 </div>
 
@@ -223,7 +234,7 @@
             <a href="https://maps.app.goo.gl/2wt6MSs3wJhFbWwD6"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="mt-2 font-jost text-2xl md:text-4xl text-white text-center">
+                class="mt-2 font-jost text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white text-center px-4">
                 4271 Genesee St, Cheektowaga, NY 14225
             </a>
 
