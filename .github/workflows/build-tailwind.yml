@@ -27,11 +27,14 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
-        run: npm install
+      - name: Remove any committed node_modules (avoid stale/broken binaries)
+        run: rm -rf node_modules
+
+      - name: Install dependencies (clean)
+        run: npm ci
 
       - name: Build Tailwind CSS
-        run: npm run build
+        run: npx tailwindcss -i ./src/styles.css -o ./dist/output.css --minify
 
       - name: Commit updated CSS
         run: |
