@@ -57,8 +57,23 @@
 
 <body class="font-body text-gray-900">
 
-<!-- FIXED HEADER STACK: NAV + ALERT -->
-<div x-data="{ open: false }" class="fixed top-0 left-0 right-0 z-50">
+<!-- FIXED HEADER STACK: NAV + ALERT
+     x-ref + x-init below measure this nav's REAL rendered height on load
+     and on resize, and store it as a CSS variable (--nav-height) on the
+     page. The banner just below reads that variable for its padding, so
+     it always matches the nav exactly — no more guessing pixel values. -->
+<div 
+  x-data="{ open: false }" 
+  x-ref="navStack"
+  x-init="
+    const setNavHeight = () => {
+      document.documentElement.style.setProperty('--nav-height', $refs.navStack.offsetHeight + 'px');
+    };
+    setNavHeight();
+    window.addEventListener('resize', setNavHeight);
+  "
+  class="fixed top-0 left-0 right-0 z-50"
+>
 
   <!-- NAVBAR (stays at top always) -->
   <nav class="bg-[#061c36]">
@@ -128,15 +143,21 @@
 
 <!-- ANNOUNCEMENT BANNER — inline, not fixed. Sits at the top of the page
      content and scrolls away naturally.
-     NOTE: this site's CSS is a compiled Tailwind build (dist/output.css),
-     not the CDN version — any class name not already used somewhere else
-     in this file (including arbitrary values like bg-[#hex] or pt-[72px])
-     will NOT render until you rebuild that CSS file. The classes below
-     were chosen because they already appear elsewhere in this file and
-     are guaranteed to already be compiled in. If you introduce a brand
-     new color or spacing value later, you must rebuild dist/output.css
-     or it will silently fail to appear. -->
-<div x-data="{ showAnnouncement: false }" x-init="showAnnouncement = true" x-show="showAnnouncement" x-transition class="bg-amber-400 pt-20 md:pt-[72px]">
+     padding-top uses var(--nav-height), set by the nav's x-init above,
+     so it always exactly matches the real nav height on any device or
+     screen size — no hardcoded pixel/class guessing. The 4.5rem fallback
+     only applies for the brief instant before JS runs.
+     bg-amber-400 is on THIS same padded element (not a nested div), so
+     there is no possibility of a transparent/white gap showing between
+     the nav and the banner. -->
+<div 
+  x-data="{ showAnnouncement: false }" 
+  x-init="showAnnouncement = true" 
+  x-show="showAnnouncement" 
+  x-transition 
+  class="bg-amber-400"
+  style="padding-top: var(--nav-height, 4.5rem);"
+>
   <div class="text-[#061c36]">
     <div class="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-between gap-4">
       <p class="font-jost text-sm md:text-base font-medium truncate">
@@ -153,7 +174,6 @@
     </div>
   </div>
 </div>
-
 
 <!-- HERO SECTION -->
     <header class="relative min-h-screen py-28 md:py-24 flex flex-col items-center justify-center text-center px-6">
