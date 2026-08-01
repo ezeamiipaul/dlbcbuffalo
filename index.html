@@ -113,7 +113,7 @@
   </nav>
 
   <!-- ALERT (always sits under nav, no top offsets needed) -->
- <!-- <div 
+  <div 
     x-show="showAlert"
     x-transition
     class="bg-red-700 text-white"
@@ -122,22 +122,20 @@
       
       <div class="font-jost text-base md:text-lg leading-relaxed">
         <strong class="block w-full text-center text-xl md:text-2xl">
-          ⚠️ URGENT ANNOUNCEMENT ⚠️
+          🏡 New Program: Home Caring Fellowship
         </strong>
         <span class="block mt-1">
-          Due to <strong>SEVERE WINTER STORM</strong> expected tomorrow AM through Monday, Worship Service for tomorrow shall be
-          <strong>online via Zoom</strong> at <strong>9:45am</strong>. Please find below the Zoom link. Thank you!
+          Join us every <strong>Sunday, 6-7pm EST</strong> for Bible study, prayer,
+          Christian fellowship, and spiritual growth in a small-group home setting.
         </span>
       </div>
 
       <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
         <a 
-          href="https://us02web.zoom.us/j/915508119?pwd=ZkZUOGZzeDkxcXVJSjVLbnc3M3ZPdz09"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#events"
           class="px-5 py-2 bg-white text-red-700 rounded-full font-jost font-semibold hover:bg-red-100 transition text-sm text-center"
         >
-          Join on Zoom
+          Learn More
         </a>
 
         <button 
@@ -150,7 +148,7 @@
       </div>
 
     </div>
-  </div>-->
+  </div>
 
   <!-- MOBILE MENU OVERLAY (keep yours, but move it here so it sits within the same stack) -->
   <div 
@@ -663,116 +661,17 @@
 
 
 
-    <!-- UPCOMING EVENTS SECTION -->
-<!--<section class="px-6 py-12 bg-gray-50 text-gray-900">
-
+    <!-- UPCOMING EVENTS SECTION
+         To add, remove, or edit an event: scroll down to the "EVENTS DATA"
+         script block near the bottom of the file and edit the plain-English
+         list there. You do NOT need to touch any HTML/CSS in this section. -->
+<section class="px-6 py-12 bg-gray-50 text-gray-900">
   <h2 class="font-impact text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
     Upcoming Events
   </h2>
 
-  <!-- CARD STACK
- <div class="max-w-4xl mx-auto flex flex-col gap-10">
-
-  <!-- RETREAT CARD
-  <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
-  <img src="./Pics/easter2026.jpg" alt="Easter Retreat Flyer" class="w-full h-auto object-cover"/>
-  
-  <div class="p-6 md:p-8">
-    <h3 class="font-impact text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-      Easter Global Retreat 2026
-    </h3>
-    
-    <p class="font-jost text-gray-700 text-lg mb-6 leading-relaxed">
-      Join us for the Easter Global Retreat themed <strong>"The Glory of Christ’s Resurrection"</strong>. 
-      Retreat will be held both in person and via Zoom.
-    </p>
-    
-    <div class="mt-6 pt-4 border-t border-gray-200 text-lg text-gray-700 leading-relaxed">
-      <strong>Date:</strong> April 2 – April 6, 2026<br>
-      <strong>Venue:</strong> 3699 West Henrietta Road, Rochester, NY 14623 <br>
-      <strong>Thursday:</strong> 6:00 PM<br>
-      <strong>Friday:</strong> 6:00 PM<br>
-      <strong>Saturday:</strong> 12:00 PM<br>
-      <strong>Sunday:</strong> 9:45 AM<br>
-    </div>
-  </div>
-</div>
-
-    <!-- CARD 2
-    <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
-      <img src="./Pics/gckmay26.jpg" alt="Prayer for children Flyer" class="w-full h-auto object-cover"/>
-      <div class="p-6 md:p-8">
-        <h3 class="font-impact text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-          Global Crusade with Kumuyi (GCK)
-        </h3>
-        <p class="font-jost text-gray-700 text-lg mb-6 leading-relaxed">
-          Connect with us this month for a powerful time of worship, where lives are transformed through signs, wonders, and the message of Jesus Christ.
-        </p>
-        <div class="mt-6 pt-4 border-t border-gray-200 text-lg text-gray-700">
-          <strong>Date:</strong> May 27, 2026 - May 31, 2026<br>
-          -<strong>Time:</strong> 10:00 AM EST<br>
-          <strong>Venue:</strong> 4271 Genesee St, Cheektowaga, NY 14225
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD 3
-    <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
-      <img src="./Pics/covenant.jpg" alt="December Retreat Flyer" class="w-full h-auto object-cover"/>
-      <div class="p-6 md:p-8">
-        <h3 class="font-impact text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-          Covenant Sunday Services
-        </h3>
-        <p class="font-jost text-gray-700 text-lg mb-6 leading-relaxed">
-          Join us every Sunday in January for our January Covenant Services, a special time of worship, prayer,
-          and spiritual renewal.
-        </p>
-        <div class="mt-6 pt-4 border-t border-gray-200 text-lg text-gray-700">
-          <strong>Every Sunday in January</strong><br>
-          <strong>Time:</strong> 9:45 AM Prompt<br>
-          <strong>Venue:</strong> 4271 Genesee St, Cheektowaga, NY 14225
-        </div>
-      </div>
-    </div>
-
-    <!-- Monthly Vigil Card
-    <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
-      <img src="./Pics/vigil.JPG" alt="Monthly Vigil Flyer" class="w-full h-auto object-cover"/>
-      <div class="p-6 md:p-8">
-        <h3 class="font-impact text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-          Monthly Vigil
-        </h3>
-        <p class="font-jost text-gray-700 text-lg mb-6 leading-relaxed">
-          Join us for a night of earnest prayer, worship, and waiting on God for divine encounters and breakthroughs.
-        </p>
-        <div class="mt-6 pt-4 border-t border-gray-200 text-lg text-gray-700">
-          <strong>Date:</strong> June 26, 2026<br>
-          <strong>Time:</strong> 11:00 PM EST<br>
-          <strong>Venue:</strong> 3699 West Henrietta Road, Rochester, NY 14623 <br>
-          <strong>Zoom:</strong> ID: 551 024 858 Passcode: 443089
-        </div>
-      </div>
-    </div>
-
-    <!-- Young Adult Meeting Card
-    <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
-      <img src="./Pics/ya.JPG" alt="Monthly Vigil Flyer" class="w-full h-auto object-cover"/>
-      <div class="p-6 md:p-8">
-        <h3 class="font-impact text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-          Young Adults Bi-Weekly Meeting
-        </h3>
-        <p class="font-jost text-gray-700 text-lg mb-6 leading-relaxed">
-          Join our young adults for a time of fellowship and prayer.
-        </p>
-        <div class="mt-6 pt-4 border-t border-gray-200 text-lg text-gray-700">
-          <strong>Date:</strong> July 1, 2026<br>
-          <strong>Time:</strong> 8:00 PM EST<br>
-          <strong>Venue:</strong> Zoom <br>
-          <strong>Zoom:</strong> ID: 857 3443 2255
-        </div>
-      </div>
-    </div>
-
+  <div id="upcoming-events-list" class="max-w-4xl mx-auto flex flex-col gap-10">
+    <!-- Event cards are generated automatically from the EVENTS DATA list below. -->
   </div>
 </section>
 
@@ -804,6 +703,10 @@
 
             <div class="rounded-xl overflow-hidden shadow-md border hover:shadow-lg transition">
                 <img src="./Pics/Vigil.png" class="w-full h-auto object-cover">
+            </div>
+
+            <div class="rounded-xl overflow-hidden shadow-md border hover:shadow-lg transition">
+                <img src="./Pics/HomeCaringFellowship.jpg" alt="Home Caring Fellowship - Every Sunday 6-7pm EST" class="w-full h-auto object-cover">
             </div>
         </div>
 
@@ -1214,6 +1117,126 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+</script>
+
+<!-- =====================================================================
+     EVENTS DATA — this is the ONLY part of the file you should need to
+     edit to add, remove, or update an "Upcoming Event" card.
+
+     HOW TO ADD AN EVENT:
+       1. Copy one of the { ... } blocks below (including the commas).
+       2. Paste it inside the [ ] list, in the position you want it to
+          appear (top of list = first card shown).
+       3. Edit the text between the quotes. Leave everything else as-is.
+       4. Set "image" to a picture in your ./Pics folder, or leave it
+          as "" (empty quotes) to show a card with no flyer image.
+       5. Save, commit, and push. That's it — no other HTML to touch.
+
+     HOW TO REMOVE AN EVENT:
+       Delete its whole { ... } block (from the opening { to the
+       closing }, including the trailing comma).
+
+     HOW TO HIDE AN EVENT TEMPORARILY (without deleting it):
+       Add   show: false   as a line inside that event's { } block.
+       (Leaving the show line out entirely also displays the event —
+       only show: false hides it.)
+  ===================================================================== -->
+<script>
+  const upcomingEvents = [
+    {
+      title: "Easter Global Retreat 2026",
+      image: "./Pics/easter2026.jpg",
+      description: 'Join us for the Easter Global Retreat themed "The Glory of Christ\u2019s Resurrection". Retreat will be held both in person and via Zoom.',
+      details: [
+        "Date: April 2 \u2013 April 6, 2026",
+        "Venue: 3699 West Henrietta Road, Rochester, NY 14623",
+        "Thursday: 6:00 PM",
+        "Friday: 6:00 PM",
+        "Saturday: 12:00 PM",
+        "Sunday: 9:45 AM"
+      ],
+      show: false
+    },
+    {
+      title: "Global Crusade with Kumuyi (GCK)",
+      image: "./Pics/gckmay26.jpg",
+      description: "Connect with us this month for a powerful time of worship, where lives are transformed through signs, wonders, and the message of Jesus Christ.",
+      details: [
+        "Date: May 27, 2026 - May 31, 2026",
+        "Time: 10:00 AM EST",
+        "Venue: 4271 Genesee St, Cheektowaga, NY 14225"
+      ],
+      show: false
+    },
+    {
+      title: "Covenant Sunday Services",
+      image: "./Pics/covenant.jpg",
+      description: "Join us every Sunday in January for our January Covenant Services, a special time of worship, prayer, and spiritual renewal.",
+      details: [
+        "Every Sunday in January",
+        "Time: 9:45 AM Prompt",
+        "Venue: 4271 Genesee St, Cheektowaga, NY 14225"
+      ],
+      show: false
+    },
+    {
+      title: "Monthly Vigil",
+      image: "./Pics/vigil.JPG",
+      description: "Join us for a night of earnest prayer, worship, and waiting on God for divine encounters and breakthroughs.",
+      details: [
+        "Date: June 26, 2026",
+        "Time: 11:00 PM EST",
+        "Venue: 3699 West Henrietta Road, Rochester, NY 14623",
+        "Zoom: ID: 551 024 858 Passcode: 443089"
+      ],
+      show: false
+    },
+    {
+      title: "Young Adults Bi-Weekly Meeting",
+      image: "./Pics/ya.JPG",
+      description: "Join our young adults for a time of fellowship and prayer.",
+      details: [
+        "Date: July 1, 2026",
+        "Time: 8:00 PM EST",
+        "Venue: Zoom",
+        "Zoom: ID: 857 3443 2255"
+      ],
+      show: false
+    }
+  ];
+
+  // ---- Rendering logic below. No need to edit anything past this line. ----
+  function renderUpcomingEvents() {
+    const container = document.getElementById("upcoming-events-list");
+    if (!container) return;
+
+    const visibleEvents = upcomingEvents.filter(e => e.show !== false);
+
+    if (visibleEvents.length === 0) {
+      container.innerHTML =
+        '<p class="font-jost text-center text-gray-500 text-lg">No upcoming events at this time. Please check back soon.</p>';
+      return;
+    }
+
+    container.innerHTML = visibleEvents.map(event => `
+      <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+        ${event.image ? `<img src="${event.image}" alt="${event.title} Flyer" class="w-full h-auto object-cover"/>` : ""}
+        <div class="p-6 md:p-8">
+          <h3 class="font-impact text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
+            ${event.title}
+          </h3>
+          ${event.description ? `<p class="font-jost text-gray-700 text-lg mb-6 leading-relaxed">${event.description}</p>` : ""}
+          ${event.details && event.details.length ? `
+            <div class="mt-6 pt-4 border-t border-gray-200 text-lg text-gray-700 leading-relaxed">
+              ${event.details.map(line => `${line}<br>`).join("")}
+            </div>
+          ` : ""}
+        </div>
+      </div>
+    `).join("");
+  }
+
+  renderUpcomingEvents();
 </script>
 
 </body>
