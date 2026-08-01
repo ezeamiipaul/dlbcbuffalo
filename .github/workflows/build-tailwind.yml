@@ -1,0 +1,42 @@
+name: Build Tailwind CSS
+
+# Runs automatically every time you push to main.
+# Builds dist/output.css from your Tailwind source and commits the
+# updated file back to the repo, so you never have to run the build
+# command yourself.
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # lets you also trigger it manually from the Actions tab
+
+# Allow the workflow to commit the built CSS back to the repo
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Tailwind CSS
+        run: npm run build
+
+      - name: Commit updated CSS
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add dist/output.css
+          git diff --staged --quiet || git commit -m "Auto-build Tailwind CSS [skip ci]"
+          git push
