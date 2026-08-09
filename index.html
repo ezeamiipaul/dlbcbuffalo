@@ -160,11 +160,10 @@
 >
   <div class="text-[#061c36]">
     <div class="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-between gap-4">
-      <p class="font-jost text-sm md:text-base font-medium leading-snug">
+      <p class="font-jost text-sm md:text-base font-medium truncate">
         🏡 New: Home Caring Fellowship — Sundays 6–7pm EST
-        <a href="#events" class="ml-1 underline underline-offset-2 font-semibold hover:no-underline whitespace-nowrap">Learn more →</a>
+        <a href="#events" class="ml-2 underline underline-offset-2 font-semibold hover:no-underline">Learn more →</a>
       </p>
-
       <button
         @click="showAnnouncement = false"
         class="shrink-0 w-7 h-7 flex items-center justify-center rounded-full hover:bg-black/10 transition"
@@ -1013,6 +1012,17 @@ document.addEventListener("DOMContentLoaded", function () {
   ===================================================================== -->
 <script>
   const upcomingEvents = [
+    {
+      title: "Back to School Service (Joint Service in Rochester)",
+      image: "./Pics/BackToSchool2026.jpg",
+      description: "Join our Rochester congregation as we come together to pray for our children heading back to school for the upcoming session, asking for God's wisdom, protection, and grace over them this school year. This is a joint service \u2014 Buffalo members are warmly invited to travel to Rochester for this gathering.",
+      details: [
+        "Date: Sunday, August 30, 2026",
+        "Time: 10:00 AM EST",
+        "Venue: Deeper Life Bible Church, Rochester \u2014 3699 West Henrietta Road, Rochester, NY 14623",
+        "For more information: (585) 260-1943"
+      ]
+    },
     {
       title: "Easter Global Retreat 2026",
       image: "./Pics/easter2026.jpg",
